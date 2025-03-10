@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 给父级元素添加display：flex元素，子元素可以自动压缩和拉伸 */
+        /* 子集就是弹性盒子 主轴:默认在水平方向的坐标轴 */
+        /* 侧轴或者交叉轴默认在垂直方向 */
+        .box{
+            display: flex;
+            /* 转化为弹性布局盒子模型 */
+            height: 300px;
+            border: 1px solid #000;
+        }
+        .box div{
+            /* margin: 10px; */
+            /* float: left; */
+           
+            width: 200px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+</body>
+</html>

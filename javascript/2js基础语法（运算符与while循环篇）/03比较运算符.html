@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // > < >= <= ==(两边数值是否相等) ===(两边数值和类型是否都相等) != !==(两边数值和类型是否都不相等)
+    console.log(1 > 2); // false
+    console.log(1 < 2); // true
+
+    console.log(1 >= 2); // false
+    console.log(1 <= 2); // true
+
+    console.log(1 == 2); // false
+    console.log(1 === 2); // false
+
+    console.log(1 != 2); // true
+    console.log(1 !== 2); // true
+    console.log(1 == '1'); // true 也有隐式转换
+    console.log(1 === '1'); // false
+
+    console.log(1 != '1'); // false
+    console.log(1 !== '1'); // true
+
+    console.log(1 == true); // true
+    console.log(1 === true); // false
+
+    console.log(1 != true); // false
+    console.log(1 !== true); // true
+
+    console.log(0 == false); // true
+    console.log(0 === false); // false
+
+    console.log(0 != false); // false
+    console.log(0 !== false); // true
+
+    console.log(null == undefined); // true
+    console.log(null === undefined); // false
+
+    console.log(null != undefined); // false
+    console.log(null !== undefined); // true
+
+    console.log(NaN == NaN); // false
+    console.log(NaN === NaN); // false
+
+    // 字符串比较是比较ascll码的大小
+    console.log('a' < 'b'); // true
+  </script>
+</body>
+
+</html>

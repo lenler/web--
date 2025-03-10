@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //作用域分为全局作用域 局部作用域
+    //函数内的定义变量只能在函数内生效 是局部作用域
+    function zuoyongyu() {
+      let m = 10
+    }
+    console.log(m)//结果为定义
+
+    //存在特殊情况
+    let num = 20
+    function fn() {
+      num = 10//当作全局变量来看
+    }
+    fn()
+    console.log(num)//num就会变成10 会影响全局变量num
+
+    //函数内部的形参也可看做局部变量
+
+  </script>
+</body>
+
+</html>

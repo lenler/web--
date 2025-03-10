@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+    //定时器函数两个功能 开 关setInterval(函数,间隔时间),每间隔N ms秒执行一次
+/*     setInterval(function(){
+      document.write(`<h1>hello</h1>`)
+    },1000) *///一旦开启不会停止
+    function say(){
+      document.write(`<h1>hello</h1>`)
+    }
+    let n =setInterval(say,1000)//这里面的函数不需要加括号调用 会自动调用
+    //第一次调用也会间隔时间
+    //定时器会返回自己的序号
+    
+    //关闭计时器
+    clearInterval(n)
+  </script>
+</body>
+</html>

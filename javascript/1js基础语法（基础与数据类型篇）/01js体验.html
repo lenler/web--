@@ -1,0 +1,33 @@
+<!-- js手机运行在浏览器的编程语言 -->
+<!-- 实现网页特效 验证合法性 数据交互 服务(后)端node.js-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .pink {
+      background-color: pink;
+    }
+  </style>
+</head>
+
+<body>
+  <button class="pink">1</button>
+  <button>2</button>
+  <button>3</button>
+  <button>4</button>
+  <script>
+    let btns = document.querySelectorAll('button');
+    for (let i = 0; i < btns.length; i++) {
+      btns[i].addEventListener('click', function () {
+        document.querySelector('.pink').classList.remove('pink')
+        this.classList.add('pink')
+      })
+    }
+  </script>
+</body>
+
+</html>

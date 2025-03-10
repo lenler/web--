@@ -1,0 +1,8 @@
+.father {
+  color: red;
+  width: 1.81333333 rem;
+}
+.father .son {
+  height: 0.77333333 rem;
+}
+/* 注意css保存后只会出现块注释 */

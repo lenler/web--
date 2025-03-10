@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        li{
+            display: flex;
+            padding-left: 42px;
+            width: 297px;
+            height: 42px;
+            list-style: none;
+        }
+        .searve{
+            width: 1190px;
+            margin: 100px auto;
+            height: 42px;
+        }
+        .searve ul{
+            display: flex;
+        }
+        .searve ul li h5{
+            width: 36px;
+            height: 42px; 
+            background-image: url(./images/sprite.png);
+            background-position: 0 -192px;
+        }
+
+        .searve ul li h5.f {
+            background-position: -41px -192px;
+        }
+
+        .searve ul li h5.s {
+            background-position: -82px -192px;
+        }
+
+        .searve ul li h5.t {
+            background-position: -123px -192px;
+        }
+
+        .searve ul li p{
+            margin-left: 10px;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 42px;
+        }
+    </style>
+</head>
+</head>
+<body>
+    <div class="searve">
+        <ul>
+            <li><h5></h5><p>品类齐全,轻松购物</p></li>
+            <li><h5 class="f"></h5><p>品类齐全,轻松购物</p></li>
+            <li><h5 class="s"></h5><p>品类齐全,轻松购物</p></li>
+            <li><h5 class="t"></h5><p>品类齐全,轻松购物</p></li>
+        </ul>
+    </div>
+</body>
+</html>

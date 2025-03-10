@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let a = +prompt(`输入范围`)
+    let b = +prompt(`输入范围`)
+    function getSum(stary, end) {
+      // stary end 是形参 默认值为nudefined 计算结果为NAN
+      let sum = 0
+      for (let i = stary; i <= end; i++) {
+        sum += i
+      }
+      console.log(`${sum}`)
+    }
+
+    // ab实参
+    getSum(a, b)
+  </script>
+</body>
+
+</html>

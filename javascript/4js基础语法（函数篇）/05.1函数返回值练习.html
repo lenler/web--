@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //1.任意两个数中的最大值并返回
+    function commpareNums(a, b) {
+      if (a > b) {
+        return a
+      }
+      else if (a === b) {
+        return (`返回的值一样大`)
+      }
+      else {
+        return b
+      }
+    }
+
+    /* 这两个案例可以合体
+    //2.求任意数组中最大值并返回
+    //3.求任意数组中最小值并返回
+    function findMax(arr = []) {
+      for (let i = 0; i < arr.length - 1; i++) {
+        for (let j = 0; j < arr.length - 1 - i; j++) {
+          if (arr[j] > arr[j + 1]) {
+            let temp = arr[j + 1]
+            arr[j + 1] = arr[j]
+            arr[j] = temp
+          }
+        }
+      }
+
+      return arr[arr.length - 1]
+    }
+
+    function findMin(arr = []) {
+      for (let i = 0; i < arr.length - 1; i++) {
+        for (let j = 0; j < arr.length - 1 - i; j++) {
+          if (arr[j] > arr[j + 1]) {
+            let temp = arr[j + 1]
+            arr[j + 1] = arr[j]
+            arr[j] = temp
+          }
+        }
+      }
+
+      return arr[0]
+    }
+
+    let big = commpareNums(1, 2)
+    let max = findMax([1, 6, 4, 7, 3, 2, 5])
+    let min = findMin([1, 6, 4, 7, 3, 2, 5])
+ */
+
+    //4案例结合
+    function findMaxAndMin(arr = []) {
+      for (let i = 0; i < arr.length - 1; i++) {
+        for (let j = 0; j < arr.length - 1 - i; j++) {
+          if (arr[j] > arr[j + 1]) {
+            let temp = arr[j + 1]
+            arr[j + 1] = arr[j]
+            arr[j] = temp
+          }
+        }
+      }
+
+      return [arr[arr.length - 1], arr[0]]
+    }
+    let big = commpareNums(1, 2)
+    let max = findMaxAndMin([1, 6, 4, 7, 3, 2, 5])[0]//此时max就是个数组
+    let min = findMaxAndMin([1, 6, 4, 7, 3, 2, 5])[1]//此时min就是个数组
+    document.write(big, max, min)
+  </script>
+</body>
+
+</html>

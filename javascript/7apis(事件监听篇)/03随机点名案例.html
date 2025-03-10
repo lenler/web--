@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>随机点名案例</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        p {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 5px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <p>点击开始随机显示问题</p>
+    <button class="one">开始</button>
+    <button class="two">结束</button>
+
+    <script>
+        const question = [
+            '函数有哪些声明方式', '函数的调用方法', '什么是对象', '你有对象吗', '怎么声明对象'
+        ]
+        const p = document.querySelector('p')
+        const start = document.querySelector('.one')
+        const stoped = document.querySelector('.two')
+        let n =0
+        let i=0
+        //将n i转换为全局变量
+
+        start.addEventListener('click', function() {
+            n = setInterval(function() {
+            i=parseInt(Math.random()*question.length)
+              p.innerHTML = question[i]
+            },250)
+        })
+
+        stoped.addEventListener('click', function() {
+            clearInterval(n)
+            question.splice(n,1)
+            console.log(question);
+            
+        })
+    </script>
+</body>
+</html>

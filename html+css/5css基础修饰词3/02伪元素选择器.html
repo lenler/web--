@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 伪类元素选择器 创建虚拟元素 用来摆放装饰性内容 默认是行内显示模式*/
+        /* 伪类元素选择器 必须结合content属性使用 来设置伪元素的内容 没有内容留空格就行*/
+        /* E::before 在e元素里面前边添加一个伪元素 */
+        /* E::after  在e元素里面后面添加一个伪元素*/
+    div{
+        height: 300px;
+        width: 300px;
+        background-color: pink;
+    }
+    div::before{
+        content:"杰瑞";
+        /* 如果content没有 选择器会直接失效 */
+    }
+    div::after{
+        content:"汤姆";
+    }
+    </style>
+</head>
+<body>
+    <span>通俗解释，伪元素选择器就是在已经选中的标签里面创建一个假的标签</span>
+    <div>爱</div>
+</body>
+</html>

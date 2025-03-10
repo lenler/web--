@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let phone = {
+      name: `xiaomi14`,
+      money: 4000,
+      address: `中国`
+    }
+
+    //查找对象的属性
+    document.write(phone.address)
+
+    //修改对象属性
+    phone.name = `xiaomi15`
+    document.write(phone.name)
+
+    //增加对象属性
+    phone.color = `白色`
+    document.write(phone.color)
+
+    //删除对象属性
+    delete phone.money//和c++很像
+    document.write(phone.money)//打印是undefind
+
+  </script>
+</body>
+
+</html>

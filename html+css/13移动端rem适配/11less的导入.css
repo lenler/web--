@@ -1,0 +1,9 @@
+.father {
+  color: aliceblue;
+}
+.father .son a {
+  color: aliceblue;
+}
+.father .son a:hover {
+  color: aliceblue;
+}

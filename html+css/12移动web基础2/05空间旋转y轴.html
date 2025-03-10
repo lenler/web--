@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box{
+        width: 300px;
+        height: 300px;
+        perspective: 1200px;
+    }
+    img{
+        width: 300px;
+        height: 300px;
+        transition: all 2s; 
+    }   
+    img:hover{
+        /* 正数就往右翻 负数就向左翻 */
+        transform: rotateY(360deg);
+    }
+</style>
+<body>
+    <div class="box"> 
+        <img src="./images/hero.jpeg" alt="">
+    </div>
+</body>
+</html>   

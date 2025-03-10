@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生信息管理系统</title>
+    <style>
+        :root {
+            --primary-color: #2196F3;
+            --danger-color: #f44336;
+            --success-color: #4CAF50;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            background-color: #f0f2f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .action-form {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        input, select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 200px;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-danger {
+            background: var(--danger-color);
+            color: white;
+        }
+
+        .btn-success {
+            background: var(--success-color);
+            color: white;
+        }
+
+        .student-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .student-table th,
+        .student-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .student-table th {
+            background: #f8f9fa;
+        }
+
+        .actions-cell {
+            width: 180px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 400px;
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .error-message {
+            color: var(--danger-color);
+            font-size: 0.9em;
+            margin-top: 5px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>学生信息管理系统</h1>
+            <button class="btn-primary" onclick="showAddModal()">添加新学生</button>
+        </div>
+
+        <!-- 添加/编辑模态框 -->
+        <div class="modal" id="form-modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal()">&times;</span>
+                <h2 id="modal-title">添加学生</h2>
+                <div class="form-group">
+                    <input type="text" id="name" placeholder="学生姓名">
+                    <div class="error-message" id="name-error"></div>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="studentId" placeholder="学号">
+                    <div class="error-message" id="id-error"></div>
+                </div>
+                <div class="form-group">
+                    <select id="grade">
+                        <option value="">选择年级</option>
+                        <option value="1">一年级</option>
+                        <option value="2">二年级</option>
+                        <option value="3">三年级</option>
+                        <option value="4">四年级</option>
+                    </select>
+                    <div class="error-message" id="grade-error"></div>
+                </div>
+                <button class="btn-primary" onclick="handleSubmit()">提交</button>
+                <input type="hidden" id="edit-id">
+            </div>
+        </div>
+
+        <!-- 学生列表 -->
+        <table class="student-table">
+            <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>学号</th>
+                    <th>年级</th>
+                    <th class="actions-cell">操作</th>
+                </tr>
+            </thead>
+            <tbody id="student-list">
+                <!-- 动态加载数据 -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // 初始化本地存储
+        let students = JSON.parse(localStorage.getItem('students')) || [];
+        
+        // 页面加载时渲染表格
+        document.addEventListener('DOMContentLoaded', renderTable);
+
+        function renderTable() {
+            const tbody = document.getElementById('student-list');
+            tbody.innerHTML = '';
+            
+            students.forEach(student => {
+                tbody.innerHTML += `
+                    <tr>
+                        <td>${student.name}</td>
+                        <td>${student.id}</td>
+                        <td>${student.grade}年级</td>
+                        <td>
+                            <button class="btn-success" onclick="editStudent(${student.id})">编辑</button>
+                            <button class="btn-danger" onclick="deleteStudent(${student.id})">删除</button>
+                        </td>
+                    </tr>
+                `;
+            });
+        }
+
+        function showAddModal() {
+            document.getElementById('modal-title').textContent = '添加学生';
+            document.getElementById('form-modal').style.display = 'flex';
+            clearForm();
+        }
+
+        function editStudent(id) {
+            const student = students.find(s => s.id == id);
+            if (student) {
+                document.getElementById('modal-title').textContent = '编辑学生';
+                document.getElementById('edit-id').value = id;
+                document.getElementById('name').value = student.name;
+                document.getElementById('studentId').value = student.id;
+                document.getElementById('grade').value = student.grade;
+                document.getElementById('form-modal').style.display = 'flex';
+            }
+        }
+
+        function validateForm() {
+            let isValid = true;
+            const name = document.getElementById('name').value.trim();
+            const studentId = document.getElementById('studentId').value.trim();
+            const grade = document.getElementById('grade').value;
+
+            // 清除错误信息
+            document.querySelectorAll('.error-message').forEach(el => el.style.display = 'none');
+
+            if (!name) {
+                document.getElementById('name-error').textContent = '姓名不能为空';
+                document.getElementById('name-error').style.display = 'block';
+                isValid = false;
+            }
+
+            if (!studentId) {
+                document.getElementById('id-error').textContent = '学号不能为空';
+                document.getElementById('id-error').style.display = 'block';
+                isValid = false;
+            } else if (!/^\d{8}$/.test(studentId)) {
+                document.getElementById('id-error').textContent = '学号必须是8位数字';
+                document.getElementById('id-error').style.display = 'block';
+                isValid = false;
+            }
+
+            if (!grade) {
+                document.getElementById('grade-error').textContent = '请选择年级';
+                document.getElementById('grade-error').style.display = 'block';
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        function handleSubmit() {
+            if (!validateForm()) return;
+
+            const id = document.getElementById('edit-id').value;
+            const studentData = {
+                name: document.getElementById('name').value.trim(),
+                id: document.getElementById('studentId').value.trim(),
+                grade: document.getElementById('grade').value
+            };
+
+            if (id) {
+                // 编辑模式
+                const index = students.findIndex(s => s.id == id);
+                if (index !== -1) {
+                    students[index] = { ...students[index], ...studentData };
+                }
+            } else {
+                // 添加模式
+                students.push({ ...studentData, id: Date.now().toString() });
+            }
+
+            saveToLocalStorage();
+            closeModal();
+            renderTable();
+        }
+
+        function deleteStudent(id) {
+            if (confirm('确定要删除这个学生吗？')) {
+                students = students.filter(s => s.id != id);
+                saveToLocalStorage();
+                renderTable();
+            }
+        }
+
+        function saveToLocalStorage() {
+            localStorage.setItem('students', JSON.stringify(students));
+        }
+
+        function closeModal() {
+            document.getElementById('form-modal').style.display = 'none';
+            clearForm();
+        }
+
+        function clearForm() {
+            document.getElementById('edit-id').value = '';
+            document.getElementById('name').value = '';
+            document.getElementById('studentId').value = '';
+            document.getElementById('grade').value = '';
+            document.querySelectorAll('.error-message').forEach(el => el.style.display = 'none');
+        }
+    </script>
+</body>
+</html>

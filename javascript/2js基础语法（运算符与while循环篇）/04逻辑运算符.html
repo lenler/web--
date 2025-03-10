@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // &&(两者都) ||(两者之一) !(取反)
+    console.log(1 > 2 && 2 > 3); // false && false = false
+    console.log(1 > 2 || 2 > 3); // false || false = false
+    console.log(!true);// false
+
+    // 案例 用户输入一个数，判断这个数被四整除 但是不能被100整除 满足体哦阿健页面弹出true 否则弹出false
+    let num = +prompt('请输入数字')
+    if (num % 4 === 0 && num % 100 !== 0) {
+      alert(`true`)
+
+    }
+    else {
+      alert('false')
+    }
+  </script>
+</body>
+
+</html>

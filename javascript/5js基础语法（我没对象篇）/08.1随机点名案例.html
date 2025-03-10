@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //随机点名：在赵云 黄忠 关羽 张飞 刘备 曹操中随机显示一个名字到页面中
+    let arr = ['赵云', '黄忠', '关羽', '张飞', '刘备', '曹操']
+    let index = Math.floor(Math.random() * 6)
+    document.write(arr[index])
+    //抽取之后不能出现
+    arr.splice(index, 1)
+    console.log(arr)
+  </script>
+</body>
+
+</html>

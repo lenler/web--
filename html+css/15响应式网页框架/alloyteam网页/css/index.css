@@ -1,0 +1,72 @@
+.bg-body-tertiary {
+  background-color: transparent !important;
+}
+.navbar-collapse {
+  flex-grow: 0;
+}
+#navbarNavAltMarkup .navbar-nav a {
+  color: aliceblue;
+}
+#navbarNavAltMarkup .navbar-nav a:first-child {
+  color: gold;
+}
+#navbarNavAltMarkup .navbar-nav a:nth-child(4) {
+  color: gold;
+}
+@media (max-width: 768px) {
+  .carousel .carousel-item {
+    height: 250px;
+  }
+}
+@media (min-width: 768px) {
+  .carousel .carousel-item {
+    height: 400px;
+  }
+}
+@media (min-width: 992px) {
+  .carousel .carousel-item {
+    height: 500px;
+  }
+}
+.carousel .carousel-item {
+  background-size: cover;
+  background-position: center 0;
+}
+.carousel .carousel-item:nth-child(1) {
+  background-image: url(../assets/uploads/banner_1.jpg);
+}
+.carousel .second {
+  background-image: url(../assets/uploads/banner_2.jpg);
+}
+.carousel .third {
+  background-image: url(../assets/uploads/banner_3.jpg);
+}
+.carousel .fouth {
+  background-image: url(../assets/uploads/banner_4.jpg);
+}
+.project {
+  margin-top: 60px;
+  text-align: center;
+}
+.project .row div {
+  height: 200px;
+  margin-bottom: 10px;
+}
+.project .row div a {
+  height: 200px;
+  background-color: green;
+  display: block;
+  border-radius: 4px;
+}
+.project .row div:nth-child(1) a {
+  background-color: skyblue;
+}
+.project .row div:nth-child(2) a {
+  background-color: #fd6a7f;
+}
+.project .row div:nth-child(3) a {
+  background-color: #7f8ea0;
+}
+.project .row div:nth-child(4) a {
+  background-color: #89d04f;
+}

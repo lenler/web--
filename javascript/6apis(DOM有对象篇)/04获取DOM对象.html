@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width='device-width', initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="box">2</div>
+  <div class="box">1</div>
+  <p id="nav">1</p>
+  <ul>
+    <li>erw</li>
+    <li>erw</li>
+    <li>erw</li>
+  </ul>
+  <script>
+    //query查询
+    // document.querySelector('css选择器') 只返回匹配的第一个元素 的对象
+    // const box = document.querySelector('.box')//获取选择器box 
+    // const nav = document.querySelector(`#nav`)//id选择器要加#
+    // nav.style.color='red'
+
+    //1.获取元素
+    const lis=document.querySelectorAll('ul li')
+    console.log(lis)//伪数组 没有pop（）这些操作数组的方法
+
+    //2.遍历
+    for(let i=0;i<lis.length;i++){
+      console.log(lis[i])
+    }
+  </script>
+</body>
+</html>

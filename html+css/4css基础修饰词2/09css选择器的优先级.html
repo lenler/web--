@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 选择器选中的范围越大优先级越低 ！important写在css前面，提高优先级 慎用*/
+      div{
+            color: red !important;
+        }
+        .box{
+            color: green;
+        }
+        #id1{
+            color: beige;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="id1" style="color: chocolate;">abcdefg</div>
+    <script>
+        // 选择器选中的范围越大优先级越低 ！important写在css前面，提高优先级 慎用
+        // 1. 选择器选中的范围越大优先级越低
+        // 2. ！important写在css前面，提高优先级 慎用
+        // 3. 行内样式优先级最高
+    </script>
+</body>
+</html>

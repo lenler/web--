@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* vw 和 vh 可以直接实现移动端适配 不需要配合js或者媒体查询  */
+    div {
+      width: 11vw;
+      /* vw是百分之一视口的宽 */
+      height: 10vh;
+      background-color: pink;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 实际尺寸=x vw * 当前视口的宽度的百分之一 -->
+  <!-- x vw = 设计尺寸 / 百分之一视口宽度 -->
+  <!-- vw 与 vh 都是相对视口的单位 -->
+  <div></div>
+</body>
+
+</html>

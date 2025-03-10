@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //编辑对象姓名属性尽量不要直接使用name 会和window.name冲突
+    //可以使用“goods-name”
+    let phone = {
+      "goods-name": `xiaomi14`,
+      money: 4000,
+      address: `中国`
+    }
+
+    //查找对象的属性
+    document.write(phone["goods-name"])
+  </script>
+</body>
+
+</html>
