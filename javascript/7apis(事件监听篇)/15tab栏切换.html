@@ -66,6 +66,7 @@
     .tab-content .item.active {
       display: block;
     }
+
   </style>
 </head>
 
@@ -89,7 +90,28 @@
       <div class="item"><img src="./images/tab04.png" alt="" /></div>
     </div>
   </div>
+<script>
+  //给a用循环添加鼠标经过效果 然后给鼠标经过的a添加点击事件 如果点击就添加active并且给对应的内容添加active
+  // mouseenter鼠标经过
+  const a = document.querySelectorAll(`a`); //获取a的数组
+  // const img = document.querySelectorAll(`img`);
+  //利用遍历写鼠标经过
+  for (let i = 0; i < a.length; i++) {
+    //绑定鼠标经过事件
+    a[i].addEventListener('mouseenter', function () {
+      //取消其他active 排他思想
+      document.querySelector(`.tab-nav .active`).classList.remove(`active`);
+      //目标元素添加类名 this指向a[i] 
+      this.classList.add(`active`);
+      //取消原本的active
+      document.querySelector(`.tab-content .active`).classList.remove(`active`);
+      document.querySelector(`.tab-content .item:nth-child(${i+1})`).classList.add(`active`)
+    });
 
+  }
+
+
+</script>
 </body>
 
 </html>
