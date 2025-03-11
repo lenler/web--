@@ -6,6 +6,9 @@
   <meta charset="UTF-8">
   <title></title>
   <style>
+    /* .ck:checked{
+        被勾选的勾选框
+    } */
     * {
       margin: 0;
       padding: 0;
@@ -75,6 +78,40 @@
     </tr>
   </table>
   <script>
+    //模块1.点击全选 其余小项全部被选
+    //通过监听全选框的点击事件 用循环勾选小项
+    const checkBig = document.querySelector(`#checkAll`);
+    const check = document.querySelectorAll(`.ck`);
+    //设置监听事件
+    checkBig.addEventListener("click", function () {
+      //得到当前大复选框的选中状态
+      console.log(this.checked); //true选中 false未选中
+/*       if (this.checked === true) {
+        for (let i = 0; i < check.length; i++) {
+          check[i].checked = true;
+        }
+      } else if (this.checked === false) {
+        for (let i = 0; i < check.length; i++) {
+          check[i].checked = false;
+        }
+      } */
+      for (let i = 0; i < check.length; i++) {
+          check[i].checked = checkBig.checked;
+          //// 这种写法更好
+        }
+      //记住布尔值不是字符串 不要加引号！！！！
+    });
+
+    //模块2.勾选全部小项 全选自动被勾选
+    //利用css复选框选择器input:checked
+
+    for(let i=0;i<check.length;i++){
+      check[i].addEventListener('click',function(){
+        //判段选中的小复选框的个数 
+        checkBig.checked=document.querySelectorAll(`.ck:checked`).length===check.length
+      })
+    }
+
 
   </script>
 </body>
