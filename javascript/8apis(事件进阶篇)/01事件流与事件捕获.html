@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .big{
+    width: 500px;
+    height: 500px;
+    background-color: pink;
+  }
+  .small{
+    width: 200px;
+    height: 200px;background-color: #fff;
+  }
+</style>
+<body>
+  <div class="big"><div class="small"></div></div>
+  <script>
+    //事件流存在两个阶段 事件完整执行过程的流动路径
+    //捕获事件流 从大到小
+    //冒泡事件流 从小到大
+    //document => html => body => div 捕获阶段
+    //div => body => html => document 冒泡阶段
+    //实际工作以冒泡阶段为主
+
+    //捕获事件演示
+    const big=document.querySelector('.big')
+    const small =document.querySelector('.small')
+    document.addEventListener('click',function(){
+      alert(`捕获事件演示`)
+    },true)
+    big.addEventListener('click',function(){
+      alert('我是大的')
+    },true)
+    //dom.add~('事件类型'，函数，是否使用捕获机制)
+    small.addEventListener('click',function(){
+      alert('我是小的')
+    },true)
+    //事件从大到小依次发生
+</script>
+</body>
+</html>

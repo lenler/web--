@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <ul>
+    <li>nihao</li>
+    <li>wobuhao</li>
+    <li>woyebuhao</li>
+    <li>wohenhao</li>
+    <p>bunbians</p>
+  </ul>
+  <script>
+    //事件委托 同时给多个元素注册事件的技巧 
+    //利用事件冒泡的特点实现 通过给父元素注册事件 当触发子元素时 事件会冒泡到父元素上 触发父元素事件
+    const ul=document.querySelector(`ul`)
+    ul.addEventListener('click',function(e){
+      // alert(11)
+      //获取点击元素
+      console.log(e)//记住 事件对象的target指的是小li 指的是点击的对象d'd
+      // e.target.style.color='red'
+      //目的只点击li变色
+      //在事件对象中target中的tagName是点击对象的标签名大写
+      if(e.target.tagName==='LI'){
+        e.target.style.color=`red`
+      }
+    })
+  </script>
+</body>
+</html>

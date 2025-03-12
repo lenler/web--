@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+    .big{
+    width: 500px;
+    height: 500px;
+    background-color: pink;
+  }
+  .small{
+    width: 200px;
+    height: 200px;background-color: #fff;
+  }
+</style>
+<body>
+  <div class="big"><div class="small"></div></div>
+
+  <script>
+    const big=document.querySelector('.big')
+    const small =document.querySelector('.small')
+    document.addEventListener('click',function(){
+      alert(`冒泡事件演示`)
+    })
+    big.addEventListener('click',function(){
+      alert('我是大的')
+    })
+    //dom.add~('事件类型'，函数，是否使用捕获机制)
+    small.addEventListener('click',function(e){
+      alert('我是小的')
+      
+    //组织冒泡将事件截至到当前元素组织冒泡
+    //事件对象.stopPropagation() 阻止流动传播
+      e.stopPropagation()
+    })
+    //默认就是冒泡（第三个参数是false）
+    //事件从小到大发生
+
+    
+  </script>
+</body>
+</html>
