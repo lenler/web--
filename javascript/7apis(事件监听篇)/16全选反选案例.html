@@ -108,11 +108,10 @@
     for(let i=0;i<check.length;i++){
       check[i].addEventListener('click',function(){
         //判段选中的小复选框的个数 
-        checkBig.checked=document.querySelectorAll(`.ck:checked`).length===check.length
+        checkBig.checked=document.querySelectorAll(`.ck:checked`).length===check.length//返回值是布尔值
       })
     }
-
-
+  
   </script>
 </body>
 
