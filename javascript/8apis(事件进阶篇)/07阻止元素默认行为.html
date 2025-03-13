@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form action="https://www.itcast.cn/">
+    <input type="submit"value="免费注册">
+  </form>
+  <script>
+    //当需要组织事件的默认行为发生时 比如阻止链接的跳转
+    //e.preventDefault()
+     const submit=document.querySelector('form')
+     submit.addEventListener('submit',function(e){
+      e.preventDefault()//阻止提交行为
+     })
+  </script>
+</body>
+</html>
