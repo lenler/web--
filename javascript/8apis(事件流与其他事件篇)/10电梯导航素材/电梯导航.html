@@ -1215,11 +1215,12 @@
     </ul>
   </div>
 <script>
+  const entry=document.querySelector('.xtx_entry')
   const elevator=document.querySelector(".xtx-elevator")
   //当页面滚动超过300px显示电梯
   window.addEventListener('scroll',function(){
     const n = document.documentElement.scrollTop
-    if(n>=300){
+    if(n>=entry.offsetTop){
       elevator.style.opacity='1'
     }else{
       elevator.style.opacity='0'

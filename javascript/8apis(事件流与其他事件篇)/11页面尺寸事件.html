@@ -5,9 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+<style>
+  div{
+    height: 200px;
+    width: 200px;
+    background-color: pink;
+  }
+</style>
 <body>
+  <div></div>
   <script>
-    
+    const div=document.querySelector('div')
+    //获取宽高 可见的宽高不包含margin padding等
+    //clieWidth clientHeight 通过js来检测盒子大小
+    console.log(div.clientWidth);
+    window.addEventListener('resize',function(){
+      //resize 浏览器窗口大小变化时触发的事件
+
+    })
+
   </script>
 </body>
 </html>

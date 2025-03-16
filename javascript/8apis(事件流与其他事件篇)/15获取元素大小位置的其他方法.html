@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+    div{
+    height: 200px;
+    width: 200px;
+    background-color: pink;
+  }
+</style>
+<body>
+  <div>
+  </div>
+  <script>
+    const div=document.querySelector(`div`)
+    console.log(div.getBoundingClientRect())//可以得到元素的所有相对位置 但是这个是针对视口 拉动视口位置就会改变
+  </script>
+</body>
+</html>
