@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<script>
+  //1.页面加载事件
+  //用法：等页面资源全部处理完之后做一些操作  ； 部分代码把js放在head上面
+  //如果想要触发给window事件加load
+    window.addEventListener('load',function(){
+      const btn =document.querySelector("button")
+      btn.addEventListener('click',function(e){
+        alert(1)
+      })
+      //等整个资源全部加载完成
+    })
+   /*  img.addEventListener("load",function(){
+      //等待img加载完再执行函数
+    }) */
+
+  document.addEventListener('DOMContentLoaded',function(){
+    //效果和上面的类似 但是他无需等待样式表完全加载就会执行函数
+  })
+</script>
+<body>
+  <button>加纳</button>
+  <!-- js不能执行 -->
+</body>
+</html>
