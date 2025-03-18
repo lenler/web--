@@ -828,3 +828,6 @@
   font-size: 20px;
   transform: rotate(-90deg);
 }
+html{
+  scroll-behavior: smooth;
+}

@@ -1144,6 +1144,7 @@
       </div>
     </div>
   </div>
+
   <!-- 公共底部 -->
   <div class="xtx_footer clearfix">
     <div class="wrapper">
@@ -1204,6 +1205,7 @@
       </div>
     </div>
   </div>
+
   <!-- 电梯 -->
   <div class="xtx-elevator">
     <ul class="xtx-elevator-list">
@@ -1215,6 +1217,8 @@
     </ul>
   </div>
 <script>
+//返回最顶部
+(function(){
   const entry=document.querySelector('.xtx_entry')
   const elevator=document.querySelector(".xtx-elevator")
   //当页面滚动超过300px显示电梯
@@ -1231,6 +1235,54 @@
   backtop.addEventListener('click',function(){
     document.documentElement.scrollTop=0
   })
+ })();
+ //点击页面可以滑动
+(function(){
+  //点击时添加active
+  const list =document.querySelector('.xtx-elevator-list')
+  list.addEventListener('click',function(e){
+    //判断当前点击的元素
+    if(e.target.tagName==='A'&& e.target.dataset.name){//e.target.dataset.name是字符串除了为空都是对的，可以排除最后一个小li
+/*       //排他思想
+      document.querySelector(`.xtx-elevator-list .active`).classList.remove('active')
+      e.target.classList.add('active')
+      //初次获取不到active类所以会报错 所以不能直接获取这个类*/
+      //利用间接方法来获取active这个类
+      const old=document.querySelector('.xtx-elevator-list .active')
+      if(old)old.classList.remove(`active`) 
+      e.target.classList.add('active')
+
+      //获取自定义属性利用模板字符串给对应名称的大模块获取元素
+     const top = document.querySelector(`.xtx_goods_${e.target.dataset.name}`).offsetTop
+     document.documentElement.scrollTop=top
+    }
+
+  })
+
+  window.addEventListener('scroll',function(){
+    // 当页面滚动移除类
+    const old=document.querySelector('.xtx-elevator-list .active')
+    if(old)old.classList.remove(`active`) 
+    //判断页面滑动的为欸之选择小盒子
+    //1.先获取四个大盒子
+    const news=document.querySelector('.xtx_goods_new')
+    const popular=document.querySelector('.xtx_goods_popular')
+    const brand=document.querySelector('.xtx_goods_brand')
+    const topic=document.querySelector('.xtx_goods_topic')
+    const n =document.documentElement.scrollTop
+    if(n>=news.offsetTop&&n<popular.offsetTop){
+      //选择第一个小盒子
+      document.querySelector('[data-name=new]').classList.add(`active`)//利用属性选择器
+    }else if(n>=popular.offsetTop&&n<brand.offsetTop){
+      document.querySelector('[data-name=popular]').classList.add(`active`)
+    }else if(n>=brand.offsetTop&&n<topic.offsetTop){
+      document.querySelector('[data-name=brand]').classList.add(`active`)
+    }else if(n>=topic.offsetTop){
+      document.querySelector('[data-name=topic]').classList.add(`active`)
+
+    }
+  }) 
+})();
 </script>
 </body>
 
