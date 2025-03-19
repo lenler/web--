@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  div{
+    margin: 100px auto;
+    width: 300px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    background-color: black;
+    color: aliceblue;
+  }
+</style>
+<body>
+  <div></div>
+  <script>
+    const div =document.querySelector('div')
+    const date =new Date()
+    let h=date.getHours()<10?`0`+date.getHours():date.getHours();
+    let m=date.getMinutes()<10?`0`+date.getMinutes():date.getMinutes();
+    let s=date.getSeconds()<10?`0`+date.getSeconds():date.getSeconds();
+    div.innerHTML=`${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()} ${h}:${m}:${s}`
+    setInterval(() => {
+      //获取当前时间
+      const date =new Date()
+      let h=date.getHours()<10?`0`+date.getHours():date.getHours();
+      let m=date.getMinutes()<10?`0`+date.getMinutes():date.getMinutes();
+      let s=date.getSeconds()<10?`0`+date.getSeconds():date.getSeconds();
+      //在div中打印
+      div.innerHTML=`${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()} ${h}:${m}:${s}`
+    }, 1000);
+  </script>
+</body>
+</html>

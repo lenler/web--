@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <ul>
+    <li>2</li>
+  </ul>
+  <script>
+    //增加节点
+    //创建一个新的节点 将创建的节点放入指定元素内部
+    const ul=document.querySelector(`ul`)
+    const li = document.createElement('li')
+    li.innerHTML=`1`
+    //追加节点 
+    // ul.appendChild(li)
+    //插入父元素中某个子元素的前面
+    ul.insertBefore(li,ul.children[0])//利用节点的关系
+  </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+  </ul>
+  <script>
+    //删除节点要从父节点开始删除 如果不存在父节点删除就不成功
+    const ul=document.querySelector(`ul`)
+    ul.removeChild(ul.children[4])
+  </script>
+</body>
+</html>
