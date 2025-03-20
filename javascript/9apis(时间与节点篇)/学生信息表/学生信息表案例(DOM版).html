@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>学生信息管理</title>
+  <link rel="stylesheet" href="css/index.css" />
+</head>
+
+<body>
+  <h1>新增学生</h1>
+  <form class="info" autocomplete="off">
+    姓名：<input type="text" class="uname" name="uname" />
+    年龄：<input type="text" class="age" name="age" />
+    性别:
+    <select name="gender" class="gender">
+      <option value="男">男</option>
+      <option value="女">女</option>
+    </select>
+    总分：<input type="text" class="salary" name="salary" />
+    家乡城市：<select name="city" class="city">
+      <option value="北京">北京</option>
+      <option value="上海">上海</option>
+      <option value="广州">广州</option>
+      <option value="深圳">深圳</option>
+      <option value="曹县">曹县</option>
+    </select>
+    <button class="add">录入</button>
+  </form>
+
+  <h1>学生管理信息表</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>学号</th>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>性别</th>
+        <th>总分</th>
+        <th>家乡城市</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>   
+        <!-- <tr>
+          <td>1001</td>
+          <td>欧阳霸天</td>
+          <td>19</td>
+          <td>男</td>
+          <td>15000</td>
+          <td>上海</td>
+          <td>
+            <a href="javascript:">删除</a>
+          </td>
+        </tr>   -->
+    </tbody>
+  </table>
+  <script>
+    //本次案例的数据增删都是在数组与对象的基础上进行操作的
+    //主要功能为录入，删除，修改（暂时不实现）
+    //增加思路
+    //1.先获取各个元素 表单中的各个节点 获取表格元素使用innerhtml赋值利用模板字符串打印
+    const inform =document.querySelector(`.info`)
+    const table=document.querySelector(`table tbody`)
+/*     console.log(table.children[0].children[0].innerHTML) //有两层数组，在录入数据时先创建子节点，删除时删除子节点 */
+    //2.设置事件监听当点击add时触发事件 将表单中的各个元素内容通过模板字符串打印到表格中
+    const add =document.querySelector(`.info .add`) 
+    //如果表单中元素为空禁止上传
+    let i=1001
+    add.addEventListener('click',function(e){
+      //其实这里本来是提交行为
+      if (
+      inform.children[0].value.trim() !== '' &&  // 姓名
+      inform.children[1].value.trim() !== '' &&  // 年龄
+      inform.children[2].value.trim() !== '' &&  // 性别
+      inform.children[3].value.trim() !== '' &&  // 总分
+      inform.children[4].value.trim() !== ''     // 城市
+      ){
+        e.preventDefault()
+        const tr=document.createElement(`tr`)
+        tr.innerHTML=`
+            <td>${i}</td>
+            <td>${inform.children[0].value}</td>
+            <td>${inform.children[1].value}</td>
+            <td>${inform.children[2].value}</td>
+            <td>${inform.children[3].value}</td>
+            <td>${inform.children[4].value}</td>
+            
+            <td>
+              <a href="javascript:">删除</a>
+            </td> `              
+        table.appendChild(tr)
+        //3.清空表单元素  
+         for(let i=0;i<inform.children.length-1;i++){
+          inform.children[i].value=null
+        }  
+            i++
+      }else{
+        return alert(`内容不能为空`)
+      }    
+      e.preventDefault() 
+    }) 
+  //4.删除 利用事件委托给父节点设置事件监听 利用冒泡找到子元素
+  table.addEventListener('click', function(event) {
+    if (event.target.tagName === 'A') {
+      event.preventDefault();
+      const row = event.target.parentNode.parentNode;//找到tr节点
+      table.removeChild(row);//删除tr
+    }
+  });
+
+  </script>
+
+</body>
+
+</html>
