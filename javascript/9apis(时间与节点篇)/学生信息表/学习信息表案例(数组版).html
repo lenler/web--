@@ -58,80 +58,100 @@
     </tbody>
   </table>
   <script>
-    //1.声明一个新数组
-    //2.点击录入 根据相关数据生成对象 追加到数组中
-    //3.根据数组数据渲染页面-表格的行
-    //4.点击删除 删除对应的数组中的数据
-    //5.再次根据数组中的数据渲染
-    const arr=[]
-    const uname=document.querySelector(`.uname`)
-    const age=document.querySelector(`.age`)
-    const gender=document.querySelector(`.gender`)
-    const salary=document.querySelector(`.salary`)
-    const city=document.querySelector(`.city`)
-    const info =document.querySelector(`.info`)
-    const tbody=document.querySelector(`tbody`)
-    const name=document.querySelectorAll('[name]')
-    info.addEventListener('submit',function(e){
-      //1.1阻止默认提交事件
-      e.preventDefault()
-      //非空判断
-      for(let i=0;i<name.length;i++){
-        if(name[i].value===''){
-          return alert(`内容不能为空`)
-        }
-      }
-      //1.2创建新的对象，里面存储表单传来的数据
-      const obj={
-        stuid: arr.length+1,
-        uname:uname.value,
-        gender:gender.value,
-        salary:salary.value,
-        city:city.value
-      }
-      //1.3追加对象到数组
-      arr.push(obj)
-      //清空表单
-      this.reset()
-      //调用
-      render()
-    })
+    /* 学生信息管理系统核心逻辑 */
+    // ========== 数据管理 ==========
+    // 学生数据存储数组
+    const arr = [];
 
-    //2.渲染函数（增加和删除都需要渲染）
-    function render(){
-      //遍历数组
-      //先清空tbody以前的行
-      tbody.innerHTML=''
-      for(let i=0;i<arr.length;i++){
-        //生成tr
-        const tr =document.createElement(`tr`)
-        tr.innerHTML=`
-          <td>${arr[i].stuid}</td>
-          <td>${arr[i].uname}</td>
-          <td>${arr[i].age}</td>
-          <td>${arr[i].gender}</td>
-          <td>${arr[i].salary}</td>
-          <td>${arr[i].city}</td>
-          <td>
-            <a href="javascript:"" data-id=${i}>删除</a>
-          </td>
-        `
-        tbody.appendChild(tr)
-      }
-    }
+    // ========== DOM元素获取 ==========
+    // 表单输入元素
+    const uname = document.querySelector('.uname');
+    const age = document.querySelector('.age');
+    const gender = document.querySelector('.gender');
+    const salary = document.querySelector('.salary');
+    const city = document.querySelector('.city');
     
-    //3.利用事件委托删除
-    tbody.addEventListener('click',function(e){
-      if(e.target.tagName ==='A'){
-        //利用循环录入数据时生成的自定义属性来找到a
-        // e.target.dataset.id
-        arr.splice(e.target.dataset.id,1)
-        render()
-      }
-    })
+    // 表单容器和表格主体
+    const info = document.querySelector('.info');
+    const tbody = document.querySelector('tbody');
+    
+    // 所有带name属性的输入元素（用于验证）
+    const name = document.querySelectorAll('[name]');
 
-    //检测非空判断
-  </script>
+    // ========== 表单提交处理 ==========
+    info.addEventListener('submit', function(e) {
+        // 阻止默认提交行为
+        e.preventDefault();
+        
+        // 输入验证：检查所有必填字段
+        for(let i = 0; i < name.length; i++) {
+            if(name[i].value === '') {
+                return alert('内容不能为空');
+            }
+        }
+
+        // 创建学生对象
+        const obj = {
+            stuid: arr.length + 1,      // 自动生成递增ID
+            uname: uname.value,         // 学生姓名
+            gender: gender.value,       // 性别
+            salary: salary.value,      // 薪资
+            city: city.value            // 城市
+        };
+
+        // 更新数据数组
+        arr.push(obj);
+        
+        // 重置表单输入
+        this.reset();
+        
+        // 重新渲染表格
+        render();
+    });
+
+    // ========== 数据渲染函数 ==========
+    /**
+     * 根据当前数据数组渲染表格
+     * 1. 清空现有表格内容
+     * 2. 遍历数组生成表格行
+     */
+    function render() {
+        // 清空旧数据
+        tbody.innerHTML = '';
+        
+        // 生成新表格行
+        for(let i = 0; i < arr.length; i++) {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td>${arr[i].stuid}</td>
+                <td>${arr[i].uname}</td>
+                <td>${arr[i].age}</td>
+                <td>${arr[i].gender}</td>
+                <td>${arr[i].salary}</td>
+                <td>${arr[i].city}</td>
+                <td>
+                    <a href="javascript:" data-id="${i}">删除</a>
+                </td>
+            `;
+            tbody.appendChild(tr);
+        }
+    }
+
+    // ========== 删除功能实现 ==========
+    // 使用事件委托处理删除操作
+    tbody.addEventListener('click', function(e) {
+        if(e.target.tagName === 'A') {
+            // 通过自定义属性获取数据索引
+            const index = e.target.dataset.id;
+            
+            // 从数组中删除对应数据
+            arr.splice(index, 1);
+            
+            // 重新渲染表格
+            render();
+        }
+    });
+</script>
 
 </body>
 

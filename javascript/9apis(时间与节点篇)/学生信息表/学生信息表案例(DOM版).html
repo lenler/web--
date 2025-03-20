@@ -58,60 +58,80 @@
     </tbody>
   </table>
   <script>
-    //本次案例的数据增删都是在数组与对象的基础上进行操作的
-    //主要功能为录入，删除，修改（暂时不实现）
-    //增加思路
-    //1.先获取各个元素 表单中的各个节点 获取表格元素使用innerhtml赋值利用模板字符串打印
-    const inform =document.querySelector(`.info`)
-    const table=document.querySelector(`table tbody`)
-/*     console.log(table.children[0].children[0].innerHTML) //有两层数组，在录入数据时先创建子节点，删除时删除子节点 */
-    //2.设置事件监听当点击add时触发事件 将表单中的各个元素内容通过模板字符串打印到表格中
-    const add =document.querySelector(`.info .add`) 
-    //如果表单中元素为空禁止上传
-    let i=1001
-    add.addEventListener('click',function(e){
-      //其实这里本来是提交行为
-      if (
-      inform.children[0].value.trim() !== '' &&  // 姓名
-      inform.children[1].value.trim() !== '' &&  // 年龄
-      inform.children[2].value.trim() !== '' &&  // 性别
-      inform.children[3].value.trim() !== '' &&  // 总分
-      inform.children[4].value.trim() !== ''     // 城市
-      ){
-        e.preventDefault()
-        const tr=document.createElement(`tr`)
-        tr.innerHTML=`
-            <td>${i}</td>
-            <td>${inform.children[0].value}</td>
-            <td>${inform.children[1].value}</td>
-            <td>${inform.children[2].value}</td>
-            <td>${inform.children[3].value}</td>
-            <td>${inform.children[4].value}</td>
+    // 学生信息管理系统功能模块
+    // 核心功能：数据录入、删除（基于DOM操作实现）
+    
+    // ---------- DOM元素获取 ----------
+    // 获取表单容器和表格主体
+    const inform = document.querySelector('.info');
+    const table = document.querySelector('table tbody');
+    
+    // ---------- 添加功能实现 ----------
+    // 初始化学号计数器
+    let i = 1001;
+    // 获取添加按钮
+    const add = document.querySelector('.info .add');
+    
+    // 添加事件监听
+    add.addEventListener('click', function(e) {
+        // 表单验证（所有字段必须填写）
+        if (
+            inform.children[0].value.trim() !== '' &&  // 姓名
+            inform.children[1].value.trim() !== '' &&  // 年龄
+            inform.children[2].value.trim() !== '' &&  // 性别
+            inform.children[3].value.trim() !== '' &&  // 总分
+            inform.children[4].value.trim() !== ''     // 城市
+        ) {
+            e.preventDefault();
             
-            <td>
-              <a href="javascript:">删除</a>
-            </td> `              
-        table.appendChild(tr)
-        //3.清空表单元素  
-         for(let i=0;i<inform.children.length-1;i++){
-          inform.children[i].value=null
-        }  
-            i++
-      }else{
-        return alert(`内容不能为空`)
-      }    
-      e.preventDefault() 
-    }) 
-  //4.删除 利用事件委托给父节点设置事件监听 利用冒泡找到子元素
-  table.addEventListener('click', function(event) {
-    if (event.target.tagName === 'A') {
-      event.preventDefault();
-      const row = event.target.parentNode.parentNode;//找到tr节点
-      table.removeChild(row);//删除tr
-    }
-  });
+            // ---------- 创建新表格行 ----------
+            const tr = document.createElement('tr');
+            // 使用模板字符串构建表格内容
+            tr.innerHTML = `
+                <td>${i}</td>
+                <td>${inform.children[0].value}</td>
+                <td>${inform.children[1].value}</td>
+                <td>${inform.children[2].value}</td>
+                <td>${inform.children[3].value}</td>
+                <td>${inform.children[4].value}</td>
+                <td>
+                    <a href="javascript:">删除</a>
+                </td>`;
+            
+            // ---------- DOM操作 ----------
+            // 将新行添加到表格
+            table.appendChild(tr);
+            
+            // ---------- 表单重置 ----------
+            // 清空所有输入字段（排除最后的按钮）
+            for(let i = 0; i < inform.children.length - 1; i++) {
+                inform.children[i].value = null;
+            }
+            
+            // 学号自增
+            i++;
+        } else {
+            // 空字段提示
+            return alert('内容不能为空');
+        }
+        e.preventDefault();
+    });
 
-  </script>
+    // ---------- 删除功能实现 ----------
+    // 使用事件委托处理删除操作
+    table.addEventListener('click', function(event) {
+        // 检测点击的是否为删除链接
+        if (event.target.tagName === 'A') {
+            event.preventDefault();
+            
+            // 获取目标行元素
+            const row = event.target.parentNode.parentNode;  // tr > td > a 结构
+            
+            // 从表格中移除行
+            table.removeChild(row);
+        }
+    });
+</script>
 
 </body>
 
