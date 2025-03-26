@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>学生信息管理</title>
+  <link rel="stylesheet" href="css/index.css" />
+</head>
+
+<body>
+  <h1>新增学生</h1>
+  <form class="info" autocomplete="off">
+    姓名：<input type="text" class="uname" name="uname" />
+    年龄：<input type="text" class="age" name="age" />
+    性别:
+    <select name="gender" class="gender">
+      <option value="男">男</option>
+      <option value="女">女</option>
+    </select>
+    总分：<input type="text" class="salary" name="salary" />
+    家乡城市：<select name="city" class="city">
+      <option value="北京">北京</option>
+      <option value="上海">上海</option>
+      <option value="广州">广州</option>
+      <option value="深圳">深圳</option>
+      <option value="曹县">曹县</option>
+    </select>
+    <button class="add">录入</button>
+  </form>
+
+  <h1>学生管理信息表</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>学号</th>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>性别</th>
+        <th>总分</th>
+        <th>家乡城市</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>   
+        <!-- <tr>
+          <td>1001</td>
+          <td>欧阳霸天</td>
+          <td>19</td>
+          <td>男</td>
+          <td>15000</td>
+          <td>上海</td>
+          <td>
+            <a href="javascript:">删除</a>
+          </td>
+        </tr>   -->
+    </tbody>
+  </table>
+  <script>
+    /* 学生信息管理系统核心逻辑 */
+    // ========== 数据管理 ==========
+    // 学生数据存储数组
+    const arr = JSON.parse(localStorage.getItem('data')) || [];
+    // ========== DOM元素获取 ==========
+    // 表单输入元素
+    const uname = document.querySelector('.uname');
+    const age = document.querySelector('.age');
+    const gender = document.querySelector('.gender');
+    const salary = document.querySelector('.salary');
+    const city = document.querySelector('.city');
+    
+    // 表单容器和表格主体
+    const info = document.querySelector('.info');
+    const tbody = document.querySelector('tbody');
+    
+    // 所有带name属性的输入元素（用于验证）
+    const name = document.querySelectorAll('[name]');
+
+    // ========== 表单提交处理 ==========
+    info.addEventListener('submit', function(e) {
+        // 阻止默认提交行为
+        e.preventDefault();
+        
+        // 输入验证：检查所有必填字段
+        for(let i = 0; i < name.length; i++) {
+            if(name[i].value === '') {
+                return alert('内容不能为空');
+            }
+        }
+
+        // 创建学生对象
+        const obj = {
+            stuid: arr.length?arr[arr.length-1].stuid + 1:1,
+            uname: uname.value,         // 学生姓名
+            gender: gender.value,       // 性别
+            age: age.value, 
+            salary: salary.value,      // 薪资
+            city: city.value            // 城市
+        };
+
+        // 更新数据数组
+        arr.push(obj);
+        
+        // 重置表单输入
+        this.reset();
+        
+        // 重新渲染表格
+        render();
+        //数据存储
+        localStorage.setItem('data',JSON.stringify(arr))
+    });
+
+    // ========== 数据渲染函数 ==========
+    /**
+     * 根据当前数据数组渲染表格
+     * 1. 清空现有表格内容
+     * 2. 遍历数组生成表格行
+     */
+    function render() {
+        // 清空旧数据
+        tbody.innerHTML = '';
+        
+        // 生成新表格行
+        for(let i = 0; i < arr.length; i++) {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td>${arr[i].stuid}</td>
+                <td>${arr[i].uname}</td>
+                <td>${arr[i].age}</td>
+                <td>${arr[i].gender}</td>
+                <td>${arr[i].salary}</td>
+                <td>${arr[i].city}</td>
+                <td>
+                    <a href="javascript:" data-id="${i}">删除</a>
+                </td>
+            `;
+            tbody.appendChild(tr);
+        }
+    }
+
+    // ========== 删除功能实现 ==========
+    // 使用事件委托处理删除操作
+    tbody.addEventListener('click', function(e) {
+        if(e.target.tagName === 'A') {
+            // 通过自定义属性获取数据索引
+            const index = e.target.dataset.id;
+            // 从数组中删除对应数据
+            arr.splice(index, 1);
+            //删除之后重新获取
+            localStorage.setItem('data', JSON.stringify(arr)); // 添加这行
+
+            // 重新渲染表格
+            render();
+        }
+    });
+</script>
+
+</body>
+
+</html>

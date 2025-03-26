@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<button>后退</button>
+<button>前进</button>
+<script>
+    console.log(navigator)
+    //浏览器的相关信息 主要验证浏览器类型做出指定跳转
+    console.log(navigator.userAgent)//这个属性比较重要
+
+    //history对象
+    //back()
+    //forward()
+    //go()1为前进 -1为后退
+    const btn1=document.querySelector(`button`)
+    btn1.onclick=function(){
+      history.back()
+    }
+    const btn2=document.querySelector(`button`)
+    btn2.onclick=function(){
+      history.forward()
+    }
+  </script>
+</body>
+</html>

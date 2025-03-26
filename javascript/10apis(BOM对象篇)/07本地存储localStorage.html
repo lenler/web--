@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //localStorage本地存储 可以永久储存数据，除非手动删除，在同浏览器可以共享容量比较大，一般有5mb
+    //以键值的形式存储，多页面共用一套数据(增删改查)
+    // localStorage.setItem(key,value)
+    localStorage.setItem(`uname`,'pink')//设置关键词 和 数据
+    //获取数据s
+    console.log(    localStorage.getItem(`uname`)    );
+    //删除数据 只删除数据
+    // localStorage.clear()//删除所有数据
+    localStorage.removeItem(`uname`)
+    //修改数据
+    localStorage.setItem(`uname`,'red')
+
+    //注意：本地存储只能储存字符串
+    localStorage.setItem('age',18)
+    console.log(localStorage.getItem('age'))
+  </script>
+</body>
+</html>

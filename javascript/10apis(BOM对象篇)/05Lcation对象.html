@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button>5秒钟之后自动跳转</button>
+  <script>
+    //location对象
+    console.log(location.href)
+    //使用场景：跳转页面 利用location.href
+    // location.href=`http://www.baidu.com`
+    
+    //案例实现 用户点击跳转，如果没有点击跳转则五秒之后自动跳转
+    const but=document.querySelector(`button`)
+    but.addEventListener('click',()=>{
+      location.href="https://github.com/"
+    })
+    let i=5
+    let n=setInterval(()=>{
+      i--
+      but.innerHTML=`${i}`
+      if(i===0){
+        clearInterval(n)
+        location.href="https://github.com/" 
+      }
+    },1000)
+
+    //lcoation对象的其他方法
+    //1,location.reload()刷新页面
+    //2,location.assign()跳转到指定页面
+    //3,location.search()
+    //4,location.replace()
+    //5,location.hash()
+    console.log(location.search)
+    if(location.search==='?a=1'){
+      location.replace(`https://www.baidu.com`)
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //map() join() 是数组实现字符串拼接的方法
+    const arr=['ni','hao','ma']
+    const newArr=arr.map((value,index)=>{
+      //index 表示当前索引
+      //value 表示当前元素(必加)
+      return value+'!'
+    })
+    console.log(newArr);
+    //join把数组所有元素转化为一个字符串
+    arr.join()//括号里写什么字符串 结合元素就拿什么符合隔开
+    console.log(arr.join());//不加就是逗号 
+    
+  </script>
+</body>
+</html>

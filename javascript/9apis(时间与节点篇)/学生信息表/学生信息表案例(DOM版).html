@@ -104,9 +104,11 @@
             
             // ---------- 表单重置 ----------
             // 清空所有输入字段（排除最后的按钮）
-            for(let i = 0; i < inform.children.length - 1; i++) {
-                inform.children[i].value = null;
-            }
+            // for(let i = 0; i < inform.children.length - 1; i++) {
+            //     inform.children[i].value = null;
+            // }
+            // 移除循环，直接调用 reset()
+            inform.reset();
             
             // 学号自增
             i++;

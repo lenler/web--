@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //该定时器用完一次之后就停止了，不会循环使用
+    let n=setTimeout(function(){
+      alert(`我只出现一次`)
+    },1000)//用法和以前学的定时器用法是一样的
+
+    //清除延迟函数
+    clearTimeout(n)
+  </script>
+</body>
+</html>
