@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+    <script>
+      //元字符是什么 元字符是一种特殊字符提高了灵活性和匹配功能
+      const regex1 = /\d+/;  // 匹配一个或多个数字
+      const regex2 = /^[A-Z]/; // 匹配以大写字母开头的字符串
+      const regex3 = /\w{4,}/; // 匹配至少4个字母/数字/下划线
+      //边界符 量词 字符类（/d => 0~9）
+
+      //1.边界符 字符所处的位置
+      //^ 表示匹配行首的文本（以谁开始） $表示匹配行尾的文本（以谁结束）
+      
+      // 示例1：匹配以"Hello"开头的字符串
+      console.log(/^Hello/.test("Hello World")); // true
+      console.log(/^Hello/.test("Say Hello"));   // false
+      
+      // 示例2：匹配以"World"结尾的字符串
+      console.log(/World$/.test("Hello World"));  // true
+      console.log(/World$/.test("World Peace"));  // false
+      
+      // 示例3：精确匹配整个字符串
+      console.log(/^Hello World$/.test("Hello World")); // true
+      console.log(/^Hello World$/.test(" Hello World ")); // false
+
+      //2.量词 表示重复次数
+      //设定某个模式（规则）出现的次数
+      
+      // * 匹配前一个字符0次或多次  如果加入精确匹配，只允许匹配的字符出现 如果出现其他字符就是false
+      console.log(/ab*c/.test("ac"));     // true (b出现0次)
+      console.log(/ab*c/.test("abc"));    // true (b出现1次)
+      console.log(/ab*c/.test("abbbc"));  // true (b出现多次)
+      
+      // + 匹配前一个字符1次或多次 >=1
+      console.log(/ab+c/.test("ac"));     // false (b至少出现1次)
+      console.log(/ab+c/.test("abc"));    // true
+      console.log(/ab+c/.test("abbbc"));  // true
+      
+      // ? 匹配前一个字符0次或1次 0||1
+      console.log(/ab?c/.test("ac"));     // true (b出现0次)
+      console.log(/ab?c/.test("abc"));    // true (b出现1次)
+      console.log(/ab?c/.test("abbbc"));  // false (b出现多次)
+      
+      // {n} 匹配前一个字符恰好n次   ==n
+      console.log(/a{3}/.test("aaa"));    // true
+      console.log(/a{3}/.test("aa"));     // false
+      
+      // {n,} 匹配前一个字符至少n次   >=n
+      console.log(/a{2,}/.test("aa"));    // true
+      console.log(/a{2,}/.test("aaa"));   // true
+      console.log(/a{2,}/.test("a"));     // false
+      
+      // {n,m} 匹配前一个字符n到m次  >=n&& <=m
+      console.log(/a{2,4}/.test("aa"));   // true
+      console.log(/a{2,4}/.test("aaa"));  // true
+      console.log(/a{2,4}/.test("a"));    // false
+      console.log(/a{2,4}/.test("aaaaa")); // false
+      
+      //3.字符类 
+      //[a-z]26个英文字母
+      //[a-zA-Z]大小写都行
+      // [] 匹配方括号中的任意一个字符 可以添加量词允许重复
+      
+      // 示例1：匹配a或b或c
+      console.log(/^[abc]$/.test("a"));      // true (精确匹配单个字符)
+      console.log(/^[abc]{2}$/.test('ab'));  // true (精确匹配两个字符)
+      console.log(/^[abc]{2}$/.test('a'));   // false (不足两个字符)
+      console.log(/^[abc]{2}$/.test('abc')); // false (超过两个字符)
+      
+      // 练习1：修改元音字母匹配为精确匹配
+      console.log(/^[aeiou]$/.test('a'));    // true
+      console.log(/^[aeiou]$/.test('e'));    // true
+      console.log(/^[aeiou]$/.test('x'));    // false
+      
+      // 练习2：修改非元音字母匹配为精确匹配
+      console.log(/^[^aeiou]$/.test('b'));   // true
+      console.log(/^[^aeiou]$/.test('a'));   // false
+      console.log(/^[^aeiou]$/.test('ab'));  // false (超过一个字符)
+      console.log(/[abc]/.test("apple"));  // true
+      console.log(/[abc]/.test("dog"));    // false
+      console.log(/[abc]{2}/.test('ab'));  //ture
+      
+      // 示例2：匹配数字
+      console.log(/[0-9]/.test("2023"));   // true
+      console.log(/[0-9]/.test("year"));   // false
+      
+      // 练习1：请写出匹配元音字母(a,e,i,o,u)的正则表达式并测试
+      console.log(/aeiou/.test('yghfn'));   //false
+      console.log(/aeiou/.test('iourt'));   //true
+      
+      
+      //4.反义字符类 [^] 匹配不在方括号中的字符  只要有一个不匹配的字符就ok
+      // 示例1：匹配非数字字符
+      console.log(/[^0-9]/.test("123"));   // false
+      console.log(/[^0-9]/.test("123a"));  // true
+      
+      // 练习2：请写出匹配非元音字母的正则表达式并测试
+      console.log(/^aeiou/.test('b'));//true
+      console.log(/^aeiou/.test('a'));//false
+      
+</script>
+</body>
+</html>

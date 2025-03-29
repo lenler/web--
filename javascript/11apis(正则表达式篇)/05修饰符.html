@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //修饰符约束正则执行的某些细节行为，如是否区分大小写，是否支持多行匹配等
+    // /表达式/修饰符
+    // i 匹配时不区分大小写
+    // g 匹配时，匹配所有满足正则表达式的结果
+    console.log(/a/i.test('A')); //true
+    
+    //replace替换 找到所需要的文本替换
+    const str='java是我要学的语言,但是我不想学JAVA'
+    const re=str.replace(/java/ig,'js');
+    console.log(re);
+  </script>
+</body>
+</html>

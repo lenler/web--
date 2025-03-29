@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <textarea name="" id="" cols="30" rows="9"></textarea>
+  <button>提交</button>
+  <div></div>
+  <script>
+    //先实现点击发布
+    const text=document.querySelector('textarea')
+    const btn=document.querySelector('button')
+    const div=document.querySelector('div')
+    //监听点击事件
+    btn.addEventListener('click',function(){
+      const str=text.value.replace(/^激情$  /g,'**')
+      div.innerText=str
+      text.value=null
+    })
+  </script>
+</body>
+</html>

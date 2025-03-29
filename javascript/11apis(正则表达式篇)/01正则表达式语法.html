@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //正则表达式 适用于匹配字符串组合的模式 js里正则表达式也是对象
+    //通常用来查找 替换 哪些符合正则表达式的文本，许多语言都支持正则表达式
+    //一般用于验证表单，或者敏感词替换
+    //总结一下 该模式的作用是匹配替换提取
+
+    //定义规则 查找并返回
+    // const  变量名 = /表达式/
+    //比如说我需要查找你好两个字
+    const str=" 你好，世界"
+    //1.定义规则
+    const reg= /你好/
+    //2.查找是否匹配
+    //text()方法 用来查看表达式与字符串是否匹配  返回true false
+    console.log(reg.test(str));
+    //esec()方法 在一个指定字符串中执行一个搜索匹配 如果匹配成功返回一个数组，返回失败是NUll
+    console.log(reg.exec(str));
+  </script>
+</body>
+</html>

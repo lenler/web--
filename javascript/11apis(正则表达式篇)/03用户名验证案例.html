@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  span{
+    width: 300px;
+    height: 20px;
+    line-height: 20px;
+    border: 1px solid black;
+  }
+  .right{
+    background-color: greenyellow;
+    border: 1px solid greenyellow;
+  }
+  .wrong{
+    background-color: red;
+    border: 1px solid red;
+  }
+</style>
+<body>
+  <!-- 要求用户名由英文字母下划线和短横线组成，并且用户名长度为6~16位 -->
+   <span><input type="text"></span>
+   <script>
+    //1.设定检查规则
+    const regobj=/^[a-zA-Z0-9-_]{6,16}$/
+    const input=document.querySelector('input');
+    const span=document.querySelector('span')
+    input.addEventListener('blur',function(){
+      if(regobj.test(input.value)){
+        span.className='right'
+      }else{
+        span.className='wrong'
+      }
+    })
+
+   </script>
+</body>
+</html>
