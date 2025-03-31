@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //一个函数对周围状态的引用捆绑在一起，内层函数中访问到其外层函数的作用域
+    //闭包=内层函数+外层函数的变量
+/*     function outer(){
+      const a=0
+      function f(){
+         console.log(a);
+      }
+      f()
+    }
+    outer() */
+    //简单理解就是里层函数用到了外层的变量 就会被捆绑在一起作为闭包
+
+    //闭包的习惯用法
+    function outer(){
+      const a=0
+      function f(){
+         console.log(a);
+      }
+      return f
+    }
+    const fun=outer()
+    fun() //0
+    //外层函数也使用内部函数的变量
+
+    //闭包的引用 统计函数被调用次数
+    function fn(){
+      let i = 0  // 这个i变量被闭包保护起来了
+      function f(){
+        i++      // 每次调用都会增加i的值
+        console.log(i)
+      }
+      return f   // 返回内部函数f
+    }
+    const ffn = fn()  // 调用fn()，返回的函数f赋值给ffn
+    //以上操作将i进行了私有化，不会被外部修改 而且不会被垃圾回收 可见闭包可能会造成内存泄露的风险
+    ffn() // 输出1
+    ffn() // 输出2 
+    ffn() // 输出3
+  </script>
+</body>
+</html>
