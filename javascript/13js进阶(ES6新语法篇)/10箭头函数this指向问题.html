@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+/*     //普通函数 - this指向调用者
+    function normalFunc() {
+      console.log(this); 
+    }
+    
+    //不同调用方式下this指向不同
+    normalFunc();          // 非严格模式下指向window，严格模式下undefined
+    window.normalFunc();   // 指向window
+    document.onclick = normalFunc; // 点击时指向document
+    
+    //对象方法 - this指向对象本身
+    const obj = {
+      name: '测试对象',
+      method: function() {
+        console.log(this.name);  // 输出"测试对象"
+      }
+    };
+    obj.method();  // this指向obj
+ */
+    // 在剪头函数中箭头函数不会创建自己的this，他只会从自己的作用域链上沿用上一层的this
+    const fn=()=>{
+      console.log(this); //window 因为fn的上一层是window
+    }
+    //对象方法的箭头函数的this
+   /*  const obj={
+      uname:'aaa',
+      sayHi:()=>{
+        console.log(this);//window 这里的obj的是window调用的，谁调用this是谁 所以this -> window
+      }
+    }
+    obj.sayHi() */
+
+    const obj={
+      uname:'aaa',
+      sayHi:function(){
+        who:()=>{
+          console.log(this);//obj 因为箭头函数的this现在是sayhi的this，obj调用了sayhi 所以现在this是obj
+           
+        }
+        who()
+      }
+    }
+    obj.sayHi()
+    // 所以在dom事件开发的函数中不太建议使用this函数
+  </script>
+</body>
+</html>

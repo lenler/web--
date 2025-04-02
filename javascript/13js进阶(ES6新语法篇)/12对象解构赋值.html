@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //解构对象属性和方法
+/* const obj={
+      uname:'你好',
+      age:18
+     } */
+    /* //解构时属性名和对象名相同
+     const{uanme,age}={uanme:'你好',age:18}
+     console.log(uanme);
+    //对象解构变量名更改
+    const{uanme:username,age:age1}={uanme:'你好',age:19} */
+    //解构数组对象
+  /*   const pig =[{uname:'佩奇',age:6}]
+    const[{uname,age}]=pig */
+    // 多级对象解构
+    const pig={
+      name:'pigs',
+      family:{
+        mother:'mama',
+        father:'baba'
+      },
+      age:6
+    }
+    const {name,family:{mother,father},age}=pig
+  </script>
+</body>
+</html>

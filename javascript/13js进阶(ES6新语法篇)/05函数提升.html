@@ -8,6 +8,18 @@
 <body>
   <script>
     //函数提升
+    //函数在声明之前就可以被调用,会把所有函数声明提升到当前作用域的最前面
+    fn()
+    function fn(){
+      console.log(Text);
+    }
+
+    //这样变量提升的是var fun 但是fun并不是函数
+    fun()
+    var fun=function(){
+      console.log(1)
+    }
+    //会报错 必须声明赋值后再调用
   </script>
 </body>
 </html>

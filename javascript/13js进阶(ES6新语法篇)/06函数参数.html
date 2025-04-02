@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //函数参数的细节
+    // 1.动态参数
+    // 参数的数量可变 比如求和函数可以输入任意数量参数求和
+    // arguments 函数内部的伪数组变量
+    function getSum(){
+      console.log(arguments);//动态参数 只存在函数里面 是一个伪数组
+      let sum=0
+      for(let i=0;i<arguments.length;i++){
+        sum+=arguments[i]
+      }
+      return sum;
+    }
+    console.log(getSum(1,2,43,5,6,6))
+
+    //2.剩余参数
+    //剩余参数允许我们将一个不定数量的参数表示为一个数组
+    function getSum2 (...arr){//...的意思就是展开数组
+      let sum=0
+      for(let i=0;i<arr.length;i++){
+        sum+=arr[i]
+      }
+      return sum
+    }
+
+    // 开发中建议使用剩余参数 在箭头函数中不能用伪数组10
+    // 剩余参数是真正的数组(Array)，可以使用数组方法
+// arguments是伪数组(Array-like)，不能直接使用数组方法
+  </script>
+</body>
+</html>

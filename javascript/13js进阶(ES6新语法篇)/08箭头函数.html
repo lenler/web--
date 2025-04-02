@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //es6新增语法
+  //1.基础写法
+    const fm=()=>{
+      // 箭头函数
+      console.log(1)
+    }
+    fm()
+  //2.如果函数只有一个参数可以写成
+  const fn= x =>{
+    console.log(2)
+  }
+  fn()
+  //3.只有一行函数可以写成
+  const cn=x=>console.log(3)
+  cn()
+  //4.只有一行可以免去return
+  const dn=x=>x+x
+  console.log(dn(2));
+  //5.可以直接返回一个对象
+  const en=(uname)=>({uname:uname})
+  console.log(en(`me`));
+</script>
+</body>
+</html>

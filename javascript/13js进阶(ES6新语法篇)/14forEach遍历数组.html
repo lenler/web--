@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  // foreach 只遍历数组不返回数组
+  const arr=[1,2,3,4,5,6,7]
+  arr.forEach(function(item,index){//当前元素必须写 因为函数不返回结果只会遍历数组 适合遍历数组对象
+    console.log(item);//数组元素
+    console.log(index);
+  })
+  </script>
+</body>
+</html>

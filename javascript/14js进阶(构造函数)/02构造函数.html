@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //构造函数是一种特殊的函数 作用是用来初始化对象的
+    function Friden(name,age) {//第一个字母一定是大写开头 只能通过new执行
+      this.name=name
+      this.age=age
+    }
+    const yuxuan=new Friden('yuxuan',18)//new的过程就是实例化
+    console.log(yuxuan);
+  </script>
+</body>
+</html>
