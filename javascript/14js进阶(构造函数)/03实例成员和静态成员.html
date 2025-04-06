@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 1.实例成员
+    // 通过构造函数创建的对象成为实例对象 实例对象中的属性和方法称为实例成员（实例属性和实例方法）
+    function Pig(name){
+      this.name=name
+    }
+    const peiqi=new Pig('peiqi')
+    const qioazhi=new Pig('peiqi')
+    //这两个对象是不同对象只是结构相同 
+    // 实例对象彼此互相独立
+
+    // 2.静态成员,只通过构造函数来访问
+    // 构造函数的属性和方法是静态成员
+    function Person(name,age) {
+      this.name=name
+    }
+    Person.eyes=2
+    Person.arms=2//静态成员
+    console.log(Person.arms);
+
+  </script>
+</body>
+</html>
