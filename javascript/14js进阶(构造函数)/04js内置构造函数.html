@@ -7,11 +7,14 @@
 </head>
 <body>
   <script>
-    //js在底层将简单数据类型包装成了复杂数据类型 
+    // js几乎所有数据类型都可以使用对象的方式来操作
+    //js在底层将简单数据类型包装成了复杂数据类型 (包装成了对象)
     const str=new String('nihao')
-    console.log(str.length);
-    //1.Object
-    12435
+    console.log(str.length);//5 属性
+    const num=12;
+    console.log(num.toFixed(2));//12.00 方法
+    //Object Array String Number Boolean Function Date Math RegExp Error
+    
   </script>
 </body>
 </html>

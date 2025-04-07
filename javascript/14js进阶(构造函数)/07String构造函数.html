@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //1.length属性 数组的长度 数组的长度是数组中元素的个数
+    //2.split('分隔符') 字符串的方法 把字符串分割成数组 返回一个新数组
+    const str='pink,jiong,red'
+    const arr=str.split(',')
+    console.log(arr); //['pink', 'jiong', 'red']
+
+    //3.substring(start,end) 字符串的方法 截取字符串 返回一个新字符串
+    //start 开始的位置 end 结束的位置 不包括end 可以省略 省略表示到末尾
+    const str2='pinkjiongred'
+    const str3=str2.substring(0,4)
+    console.log(str3); //pink
+    //4.startsWith('字符串') 字符串的方法 判断字符串是否以指定字符串开头 返回一个布尔值
+    //5.includes('字符串') 字符串的方法 判断字符串是否包含指定字符串 返回一个布尔值
+    //6.toUpperCase() 字符串的方法 把字符串转换成大写 返回一个新字符串
+    //7.toLowerCase() 字符串的方法 把字符串转换成小写 返回一个新字符串
+  </script>
+</body>
+</html>

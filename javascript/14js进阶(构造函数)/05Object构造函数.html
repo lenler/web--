@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // Object是内置的构造函数 用来创建对象的
+    const obj=new Object()
+    obj.name='peiqi'
+    obj.age=18
+    obj.sayHi=function(){
+      console.log('hi');
+    }
+    //静态方法 Object.keys() Object.values() Object.assign() 
+    //1.Object.keys() 返回一个数组 包含对象自身的所有属性名
+    console.log(Object.keys(obj)) //['name', 'age', 'sayHi']数组的形式
+    //2.Object.values() 返回一个数组 包含对象自身的所有属性的值
+    console.log(Object.values(obj)) //['peiqi', 18, ƒ]
+    //3.Object.assign() 拷贝对象的所有属性到指定对象中 返回一个新对象  或者为对象添加属性(合并对象)
+    const obj2=Object.assign({},obj)
+    console.log(obj2); //{name: 'peiqi', age: 18, sayHi: ƒ}
+    Object.assign(obj,{gender:'男'})
+    console.log(obj); //{name: 'peiqi', age: 18, sayHi: ƒ, gender: '男'}
+</script>
+</body>
+</html>

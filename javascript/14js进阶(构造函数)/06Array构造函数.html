@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // new Array() 构造数组函数,但平时不常用 因为[]更方便
+    const arr=new Array(1,2,3,4,5,6,7,8,9,10)
+    console.log(arr); //[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+   
+   
+    // foreach 只遍历数组不返回数组 
+    arr.forEach(function(item,index){
+      console.log(item,index); //1 0 2 1 3 2 4 3 5 4 6 5 7 6 8 7 9 8 10 9 
+    })
+   
+    // filter 筛选数组 返回一个新数组 
+    const arr2=arr.filter(function(item,index){
+      return item>=6 
+    })
+    console.log(arr2); //[6, 7, 8, 9, 10]
+
+    // map 便利数组 返回一个新数组 
+    const arr3=arr.map(function(item,index){
+      return item*2 
+    })
+    console.log(arr3); //[2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+
+    // reduce 数组累计器 常用来数组求和 有时候会自带初始值
+    const total=arr.reduce(function(prev,cur){
+      // prev 上一次的返回值 cur 当前遍历的元素
+      return prev+cur
+    })
+    console.log(total); //55
+    const total2=arr.reduce(function(prev,cur){
+        return prev+cur
+    },10)
+    console.log(total2); //65
+
+    // 小案例 计算薪资
+    const arrs=[{name:'peiqi',salary:1000},{name:'zhangsan',salary:2000},{name:'lisi',salary:3000}]
+    /*const salaries = arrs.map(item => item.salary);
+    console.log(salaries);  // 输出: [1000, 2000, 3000]
+    const totall=salaries.reduce((prev,cur)=>{
+      return prev+cur
+    }) 
+    */
+    //或者
+    const totall=arrs.reduce((prev,cur)=>{
+      //这里的0的作用是给prev初始值 否则会报错
+      return prev+cur.salary
+    },0)
+    console.log(totall)
+
+    //数组的其他方法
+    // 1.数组的排序 sort() 会改变原数组 从小到大排序
+    const arr4=[1,2,3,4,5,6,7,8,9,10]
+    arr4.sort((a,b)=>{
+      return a-b
+    })
+    console.log(arr4); //[10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+    // 2.数组的反转 reverse() 会改变原数组
+    arr4.reverse()
+    console.log(arr4); //[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    // 3.数组的拼接 concat() 不会改变原数组 返回一个新数组
+    const arr5=arr4.concat([11,12,13])
+    console.log(arr5); //[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    // 4.数组的截取 slice() 不会改变原数组 返回一个新数组
+    const arr6=arr5.slice(0,5)
+    console.log(arr6); //[1, 2, 3, 4, 5]
+    // 5.数组的查找 indexOf() 返回数组中第一个满足条件的元素的索引 如果没有找到返回-1
+    const arr7=[1,2,3,4,5,6,7,8,9,10]
+    const index=arr7.indexOf(5)
+    console.log(index); //4
+    // 6.数组的删除 splice() 会改变原数组 返回一个新数组
+    const arr8=[1,2,3,4,5,6,7,8,9,10]
+    const arr9=arr8.splice(0,5)
+    console.log(arr9); //[1, 2, 3, 4, 5]
+    console.log(arr8); //[6, 7, 8, 9, 10]
+    // 7.数组的插入 splice() 会改变原数组 返回一个新数组
+    const arr10=[1,2,3,4,5,6,7,8,9,10]
+    // 第一个参数是插入的位置 第二个参数是删除的个数 第三个参数是插入的元素
+    const arr11=arr10.splice(0,0,11,12,13)
+    console.log(arr11); //[]
+    console.log(arr10); //[11, 12, 13, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    // 8.数组的替换 splice() 会改变原数组 返回一个新数组
+    const arr12=[1,2,3,4,5,6,7,8,9,10]
+    const arr13=arr12.splice(0,5,11,12,13)
+    console.log(arr13); //[1, 2, 3, 4, 5]
+    console.log(arr12); //[11, 12, 13, 6, 7, 8, 9, 10]
+    // 9.数组元素拼接 join() 不会改变原数组 返回一个新数组
+    const arr14=[1,2,3,4,5,6,7,8,9,10]
+    const arr15=arr14.join('-')
+    console.log(arr15); //1-2-3-4-5-6-7-8-9-10
+    // 10.数组every() 会改变原数组 返回一个新数组 判断数组中是否所有元素都满足条件 
+    // 如果都满足返回true 如果有一个不满足返回false 
+    const arr16=[1,2,3,4,5,6,7,8,9,10]
+    const arr17=arr16.every(item=>item>5)
+    console.log(arr17); //false
+    // 11.数组some() 会改变原数组 返回一个新数组 判断数组中是否有一个元素满足条件 
+    // 如果有一个满足返回true 如果都不满足返回false 
+    const arr18=[1,2,3,4,5,6,7,8,9,10]
+    const arr19=arr18.some(item=>item>5)
+    console.log(arr19); //true
+    //find() 会改变原数组 返回一个新数组 找到第一个满足条件的元素 返回该元素 如果没有找到返回undefined
+    const arr20=[1,2,3,4,5,6,7,8,9,10]
+    const arr21=arr20.find(item=>item>5)
+    console.log(arr21); //6
+    //from() 会改变原数组 返回一个新数组 将一个伪数组对象转换成数组
+    //新数组=from(伪数组名)
+  </script>
+</body>
+</html>    
