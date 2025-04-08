@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  构造函数是通过原型来实现继承的
+  构造函数中都存在prototype属性 这个属性是一个对象 这个对象中存放了构造函数的原型对象 原型对象中存放了构造函数的公共属性和方法 当我们实例化对象时 会将原型对象中的属性和方法复制到实例对象中 这样就实现了继承
+<script>
+  let that = null;
+  function Person(name,age){
+    this.uname = name;
+    this.age = age;
+    that =this
+  }
+  //公共的方法写在原型对象中 这样就可以实现继承 这样就可以减少内存的占用 因为每个实例对象都可以调用构造函数中的公共属性和方法 但是它们的方法都是指向同一个地址 这样就实现了继承
+  Person.prototype.sing=()=>{
+    // 原型对象的this指向的是实例对象 所以this指向的是实例对象 这样就可以实现继承
+    console.log('我会唱歌');
+  }
+  const p1 = new Person('pink',18);
+  console.log(p1===that);//true 构造函数的this就是实例对象
+  const p2 = new Person('jiong',19);
+  console.log(p2===that);//true 构造函数的this就是实例对象
+  console.log(p1.sing===p2.sing);//true
+  //实例对象p1和p2都可以调用构造函数中的公共属性和方法 但是它们的方法都是指向同一个地址 这样就实现了继承
+</script>
+</body>
+</html>

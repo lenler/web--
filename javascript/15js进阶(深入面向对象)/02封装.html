@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //构造函数体现了js面相对象的封装性 将公共属性和方法封装到构造函数中 缺点是浪费内存
+    //构造函数的作用:创建对象 封装属性和方法 实例化对象 调用构造函数 必须使用new关键字
+    function Person(name,age){
+      this.uname = name;
+      this.age = age;
+    }
+    const p1 = new Person('pink',18);//实例对象p1 
+  </script>
+</body>
+</html>

@@ -109,7 +109,7 @@
     </div> -->
   </div>
   <div class="total">
-    <div>合计：<span class="amount">1000.00</span></div>
+    <div>合计：<span class="amount"></span></div>
   </div>
   <script>
     const goodsList = [
@@ -147,9 +147,34 @@
         gift: '50g茶叶,清洗球'
       }
     ]
+    //1.首先生成的内容必须放到list盒子里面 2.利用数组的map方法遍历数组，
+    //1.遍历数组
+    //因为返回的是一个数组，所以现在将数组转换为字符串
+    document.querySelector('.list').innerHTML = goodsList.map(item => {
+      // 计算小计，确保先数值运算再格式化
+      const subtotal = (item.price * item.count).toFixed(2);
+      // 处理规格信息
+      const specText = item.spec ? Object.values(item.spec).join('/') : '';
+      // 处理赠品信息
+      const giftTag = item.gift && item.gift.trim() ? 
+      item.gift.split(',').map(g => `<span class="tag">【赠品】${g.trim()}</span>`).join('') : '';
+      
+      return `<div class="item">
+        <img src="${item.picture}" alt="">
+        <p class="name">${item.name} ${giftTag}</p>
+        <p class="spec">${specText}</p>
+        <p class="price">${item.price.toFixed(2)}</p>
+        <p class="count">x${item.count}</p>
+        <p class="sub-total">${subtotal}</p>
+      </div>`;
+    }).join('');
 
-
+    //计算总价格
+    document.querySelector('.total .amount').innerHTML=goodsList.reduce((prve,cur)=>{
+      const subtotal = cur.price * cur.count
+      return prve+subtotal
+    },0).toFixed(2)
+    
   </script>
 </body>
-
 </html>

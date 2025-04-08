@@ -18,8 +18,16 @@
     const str2='pinkjiongred'
     const str3=str2.substring(0,4)
     console.log(str3); //pink
-    //4.startsWith('字符串') 字符串的方法 判断字符串是否以指定字符串开头 返回一个布尔值
-    //5.includes('字符串') 字符串的方法 判断字符串是否包含指定字符串 返回一个布尔值
+    //4.startsWith('字符串',参数) 字符串的方法 判断字符串是否以指定字符串开头 返回一个布尔值
+    //参数 可选 从哪个位置开始判断 默认从0开始 注意是从参数(包含参数)开始的位置
+    const str4='pinkjiongred'
+    const str5=str4.startsWith('pink')
+    console.log(str5); //true
+    //5.includes('字符串',参数) 字符串的方法 判断字符串是否包含指定字符串 返回一个布尔值
+    //参数 可选 从哪个位置开始判断 默认从0开始 注意是从参数(包含参数)开始的位置
+    const str6='pinkredgreen'
+    const str7=str6.includes('jiong',0)
+    console.log(str7); //false 只要包含就行,不需要考虑位置
     //6.toUpperCase() 字符串的方法 把字符串转换成大写 返回一个新字符串
     //7.toLowerCase() 字符串的方法 把字符串转换成小写 返回一个新字符串
   </script>

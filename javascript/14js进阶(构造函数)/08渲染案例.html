@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div></div>
+  <script>
+    const gift = '50g的茶叶,清洗球'
+    //1.将字符串转化为数组
+    console.log(gift.split(','))
+    //2.根据数组元素的个数生成span
+    const arr= gift.split(',').map((item)=>{//遍历数组返回一个新数组
+      return `<span>【赠品】${item}</span><br>`
+    }).join('')//将返回的数组转化为字符串
+    console.log(arr);
+    document.querySelector('div').innerHTML=arr
+  </script>
+</body>
+</html>
