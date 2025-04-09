@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function Person(){}
+    const ldh = new Person()
+    
+    // 以下是原型链关系的验证：
+    console.log(ldh.__proto__ === Person.prototype) // true，实例的__proto__指向构造函数的prototype
+    console.log(Person.prototype.constructor === Person) // true，prototype的constructor指回构造函数本身
+    console.log(Person.prototype.constructor === ldh.constructor) // true，等价于上一条
+    console.log(Person.prototype.constructor === ldh.__proto__.constructor) // true
+    console.log(ldh.__proto__.constructor === ldh.constructor) // true
+
+    // 更完整的原型链验证：
+    console.log(ldh.constructor === Person) // true
+    console.log(Object.getPrototypeOf(ldh) === Person.prototype) // true，标准方法获取原型
+
+    console.log(Person.prototype.__proto__===Object.prototype)//true
+
+   //     ldh(new出来的).__proto__<---> Person(function) <---> Person.prototype    
+   //     ldh(new出来的).__proto__ ---> Person.prototype--->Person
+   //     Person.__proto__ <---> Person.prototype.__proto__---> Object.prototype <---Object
+
+   // 实例的原型链
+// ldh → ldh.__proto__ (Person.prototype) 
+//     → Person.prototype.__proto__ (Object.prototype) 
+//     → Object.prototype.__proto__ (null)
+
+// 构造函数的原型链 
+// Person → Person.__proto__ (Function.prototype)
+//       → Function.prototype.__proto__ (Object.prototype)
+//       → Object.prototype.__proto__ (null)
+
+// 现在放大招 实例（ldh） 都有__proto__,实例.__proto__指向的是下一级的‘原型对象（A）的prototype’（只要是原型对象的prototype都有constructor，原型对象.prototype.constructor都指向构造函数。），下一级的的原型对象的A.prototype.__proto__指向下下一级（B）的原型对象.prototype。最高一级是Object.prototype,而object.prototype.__proto__指向null。
+// (ldh.__proto__) --->[(Person.prototype),(Person.prototype.__proto__)]--->[(bject.prototype),(Object.prototype.__proto__)]--->null
+// function Person() <---[(Person.prototype.constructor),(Person.prototype.__proto__)]
+    
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 继承性 
+    // 1. 定义父类构造函数
+    function Person(){
+      this.eyes = 2  // 实例属性
+      this.head = 1   // 实例属性
+    }
+
+    // 2. 定义子类构造函数
+    function Woman(){
+      // 这里不需要重复定义eyes和head，将通过原型继承获得
+    }
+    
+    // 3. 实现原型继承
+    // 关键步骤：将子类的原型对象指向父类的实例
+    // 这样Woman的实例就能通过原型链访问Person的属性
+    Woman.prototype = new Person()
+    
+    // 4. 修正constructor指向 . 
+    // 因为上一步操作会覆盖原有的constructor，需要手动指回Woman
+    Woman.prototype.constructor = Woman
+    
+    // 5. 给子类添加特有方法
+    Woman.prototype.baby = function(){
+      console.log('宝贝')
+    }
+
+    // 测试继承效果
+    const red = new Woman()
+    console.log(red)  // 可以看到red对象有eyes和head属性，来自Person
+
+    // 另一个子类示例
+    function Man(){
+      // 同样通过原型继承获得属性
+    }
+    
+    // 实现原型继承
+    Man.prototype = new Person()
+    // 修正constructor指向
+    Man.prototype.constructor = Man
+
+    const blue = new Man()
+  </script>
+</body>
+</html>

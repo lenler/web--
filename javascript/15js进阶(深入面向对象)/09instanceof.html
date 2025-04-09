@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function Person(){
+
+    }
+    const ldh = new Person()
+    //instanceof用来检查前者是否在后者的原型链上 后者必须是构造函数 不是原型对象
+    console.log(ldh instanceof Person)
+    console.log(ldh instanceof Object)
+    //检查原型链关系，应该使用 isPrototypeOf() 方法
+    console.log(Person.prototype.isPrototypeOf(ldh))  // true
+    console.log(Object.prototype.isPrototypeOf(ldh)) // true
+  </script>
+</body>
+</html>
