@@ -70,7 +70,19 @@
   </div>
   <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
   <script>
+// ontimeupdates在是视频/音频当前的播放位置发生改变时触发
+// onloadeddata 事件在当帧的数据加载完成且还没有足够的数据播视频音频的下一帧触发
 
+//思路 将ontimeupdate设置节流，每隔一秒中触发一次 记录当前视频的时间 然后本地保存
+const video=document.querySelector('video')
+video.ontimeupdate=_.throttle(()=>{
+  localStorage.setItem('time',video.currentTime)
+},1000)//类似于定时器的写法
+//下次打开页面取出时间
+
+video.onloadeddata=()=>{
+  video.currentTime=localStorage.getItem('time')||0
+}
   </script>
 </body>
 
