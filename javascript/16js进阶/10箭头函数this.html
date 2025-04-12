@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    
+    console.log(this) // 此处为 window
+    // 箭头函数
+    const sayHi = function() {
+      console.log(this) // 该箭头函数中的 this 为函数声明环境中 this 一致
+    }
+    // 普通对象
+    const user = {
+      name: '小明',
+      // 该箭头函数中的 this 为函数声明环境中 this 一致
+      walk: () => {
+        console.log(this)
+      },
+      
+      sleep: function () {
+        let str = 'hello'
+        console.log(this)
+        let fn = () => {
+          console.log(str)
+          console.log(this) // 该箭头函数中的 this 与 sleep 中的 this 一致
+        }
+        // 调用箭头函数
+        fn();
+      }
+    }
+  
+    // 动态添加方法
+    user.sayHi = sayHi
+    
+    // 函数调用
+    user.sayHi()
+    user.sleep()
+    user.walk()
+
+
+    //在开发中【使用箭头函数前需要考虑函数中 `this` 的值】，**事件回调函数**使用箭头函数时，`this` 为全局的 `window`，因此DOM事件回调函数不推荐使用箭头函数
+  // DOM 节点
+  const btn = document.querySelector('.btn')
+  // 箭头函数 此时 this 指向了 window
+  btn.addEventListener('click', () => {
+    console.log(this)
+  })
+  // 普通函数 此时 this 指向了 DOM 对象
+  btn.addEventListener('click', function () {
+    console.log(this)
+  })
+  // 同样由于箭头函数 `this` 的原因，**基于原型的面向对象也不推荐采用箭头函数**，
+  function Person() {
+  }
+  // 原型对像上添加了箭头函数
+  Person.prototype.walk = () => {
+    console.log('人都要走路...')
+    console.log(this); // window
+  }
+  const p1 = new Person()
+  p1.walk()
+  </script>
+</body>
+</html>

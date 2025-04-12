@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 现在我们继续学习关于深拷贝的js库-->
+  <script src="./lodash.min.js"></script>
+  <script>
+    const obj = {
+      uname: 'pink',
+      age: 18,
+      hobby: ['乒乓球', '足球'],
+      family: {
+        baby: '小pink'
+      }
+    }
+    const o = _.cloneDeep(obj)//只需要调用库里的这个函数就可以实现深拷贝了
+    console.log(o)
+    o.family.baby = '老pink'
+    console.log(obj)
+  </script>
+</body>
+</html>

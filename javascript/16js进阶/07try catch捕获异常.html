@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p>123</p>
+  <script>
+    function fun(){
+      try{
+        //可能发生错误的代码
+        const p = document.querySelector('.p')
+        p.style.color = 'red'
+      }
+      catch(err){
+        //拦截代码，出现错误不再执行，但是不会中断代码执行
+        console.error(err.message)
+        return
+      }
+      finally{
+        //不管程序对与错 一定会执行的代码 并且优先执行
+        alert('代码出错了吗')
+      }
+    }
+    fun()
+  </script>
+</body>
+</html>

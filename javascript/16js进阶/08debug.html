@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const obj = {
+  uname: 'pink',
+  age: 18,
+  hobby: ['乒乓球', '足球'],
+  family: {
+    baby: '小pink'
+  }
+}
+
+const o = {}
+//现在我们学习一下深拷贝函数
+function deepCopy(newobj,oldobj){
+  debugger
+  for(let k in oldobj){
+    //通过let k in循环便利老对象（数组）
+    
+    //当遇见oldobj【k】为一个数组或是对象时
+    if(oldobj[k] instanceof Array){//判断其原型对象是不是数组
+      // 当碰见数组时，我们就让新的newobj【k】也初始化为数组
+      newobj[k]=[]
+      //然后递归函数，重新判断拷贝
+      deepCopy(newobj[k],oldobj[k])
+    }else if(oldobj[k] instanceof Object){
+      //同理的对于对象我们也做一样的
+      newobj[k]={}
+      //然后递归函数，重新判断拷贝
+      deepCopy(newobj[k],oldobj[k])
+    }else{
+      newobj[k]=oldobj[k]
+    }
+  }
+}
+
+deepCopy(o,obj)
+o.age=1
+console.log(o);
+console.log(obj);
+//可见结果很理想
+
+
+  </script>
+</body>
+</html>

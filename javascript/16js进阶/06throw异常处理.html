@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //异常处理提升代码的健壮性 预估代码执行过程中可能发生的问题
+    function sum(x,y){
+      if(!x||!y){
+        throw new Error('用户没有传递参数')
+        //当throw执行后程序终端
+      }
+      return x+y
+    }
+    sum()
+  </script>
+</body>
+</html>

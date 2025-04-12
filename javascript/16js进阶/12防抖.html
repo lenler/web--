@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .box {
+    width: 500px;
+    height: 500px;
+    background-color: #ccc;
+    color: #fff;
+    text-align: center;
+    font-size: 100px;
+  }
+</style>
+<body>
+  <div class="box"></div>
+ <script src="./lodash.min.js"></script> 
+ <script>
+/*     防抖（debounce）
+    所谓防抖，就是指触发事件后在 n 秒内函数只能执行一次，如果在 n 秒内又触发了事件，则会重新计算函数执行时间 */
+    //案例类似于王者里面的回城,点击回城被打断之后再次点击就得重新回城
+    const box=document.querySelector('.box')
+    let i=1
+    function boxMove(){
+      box.innerHTML=i++
+     
+    }
+
+  //1.lodash库 实现防抖效果 
+  // box.addEventListener('mousemove',_.debounce(boxMove,500))
+  
+   //2.手写防抖处理 使用定时器实现
+/*1.声明定时器变量
+2.每次鼠标移动的时候都要先判断是否有定时器,如果有下去弄清楚以前的定时器
+3.如果没有定时器,则开启定时器,存入到定时器变量里面
+4.定时器里面写函数调用*/
+function debounce(fn,t){
+  let timer
+  // 返回一个匿名函数
+  return function(){
+    if(timer) clearTimeout(timer)
+      timer=setTimeout(function(){
+      fn()
+    },t)
+  }
+}
+
+box.addEventListener('mousemove',debounce(boxMove,250))
+  </script>
+  
+</body>
+</html>

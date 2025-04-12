@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const obj={
+      uname:1
+    }
+    function test(x,y){
+      console.log(this);
+      console.log(x+y);
+      
+    }
+    // call(thisArg,arg1,arg2...) thisarg指定对象 arg参数 调用函数并且改变函数中this的指向
+    // test.call(obj,1,2)
+    
+    //apply(thisarg,[arg]) 与call相似 调用函数同时改变函数this指向
+    // test.apply(obj,[1,2])
+
+    // bind() `bind` 方法并**不会调用函数**，而是创建一个指定了 `this` 值的新函数
+    function sayHi() {
+    console.log(this)
+  }
+  let user = {
+    name: '小明',
+    age: 18
+  }
+  // 调用 bind 指定 this 的值
+  let sayHello = sayHi.bind(user);
+  // 调用使用 bind 创建的新函数
+  </script>
+</body>
+</html>

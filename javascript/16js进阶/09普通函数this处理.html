@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 普通函数
+    function sayHi() {
+      console.log(this)  
+    }
+    // 函数表达式
+    const sayHello = function () {
+      console.log(this)
+    }
+    // 函数的调用方式决定了 this 的值
+    sayHi() // window
+    window.sayHi()
+    
+  
+  // 普通对象
+    const user = {
+      name: '小明',
+      walk: function () {
+        console.log(this)
+      }
+    }
+    // 动态为 user 添加方法
+    user.sayHi = sayHi
+    uesr.sayHello = sayHello
+    // 函数调用方式，决定了 this 的值
+    user.sayHi()
+    user.sayHello()
+  </script>
+</body>
+</html>
