@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button>dianji</button>
+  <script>
+    //this 环境对象 每个函数里都有环境对象
+    //普通函数里this指向window
+    function fun(){
+      console.log(this)
+    }
+    fun()
+    const btn = document.querySelector('button')
+    btn.onclick = function(){
+      console.log(this)
+      this.style.backgroundColor = 'red'
+      //牛逼。
+    }
+    //箭头函数里this指向定义时的环境对象
+    //函数调用不同 this指向就不同
+    //谁调用就是谁（粗略）
+  </script>
+</body>
+</html>

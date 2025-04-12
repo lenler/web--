@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //简易的存储系统
+    // 存 取 查 退
+    let money = 0 //余额
+    let flog = 1
+    while (flog === 1) {
+      //无限循环基地
+      // 1 选择器
+      let choice = +prompt(`
+      请输入您的操作指令
+                1.存钱
+                2.取钱
+                3.查钱
+                4.退出
+      `)
+      switch (choice) {
+        case 1: {
+          let add = +prompt(`您要存入的数量`)
+          money += add
+          break
+        }
+        case 2: {
+          let lose = +prompt(`您要取出的数量`)
+          money -= lose
+          break
+        }
+        case 3: {
+          alert(`您目前的余额为：${money}元`)
+          break
+        }
+        case 4: {
+          flog = 2
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>

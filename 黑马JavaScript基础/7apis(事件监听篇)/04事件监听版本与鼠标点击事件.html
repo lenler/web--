@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=-, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  div{
+    width: 500px;
+    height: 500px;
+    background-color: pink;
+  }
+</style>
+<body>
+  <!-- <button>按钮</button> -->
+   <div></div>
+  <script>
+    //事件监听版本
+    // const btn= document.querySelector('button')
+    // btn.onclick=function(){
+    //   alert(11)
+    // }
+    //这种方式会出现事件被覆盖的问题 原本的监听函数会被新的监听函数覆盖
+
+    //鼠标事件
+    //1.mouseenter鼠标经过 2.mouseleave鼠标离开事件
+    const div =document.querySelector(`div`)
+    div.addEventListener('mouseenter',function(){
+      div.style.backgroundColor="blue"
+    })
+    div.addEventListener('mouseleave',function(){
+      div.style.backgroundColor=`pink`
+    })
+    //焦点事件（表单获的光标）
+    //1.focus 获得焦点 2.blur 失去焦点
+
+    //键盘事件
+    //1.keydown键盘按下触发 2.keyup键盘抬起触发
+    //文本事件（表单输入触发）
+
+    //input 用户输入事件 
+  </script>
+</body>
+</html>

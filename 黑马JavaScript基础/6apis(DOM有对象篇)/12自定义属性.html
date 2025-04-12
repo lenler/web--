@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- data-自定义名称 -->
+  <div data-id="1" data-sm="不知道">1</div>
+  <div data-id="2">2</div>
+  <div data-id="3">3</div>
+  <div data-id="4">4</div>
+  <div data-id="5">5</div>
+  <script>
+    //标准属性：标签自带属性
+    //自定义属性：h5独有
+    const one =document.querySelector(`div`)
+    // 以data开头的都是自定义属性
+    console.log(one.dataset.id);
+    console.log(one.dataset.sm);
+  </script>
+</body>
+</html>

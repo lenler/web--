@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //逻辑中断
+    function fn(x, y) {
+      x = x || 10
+      y = y || 20
+      console.log(x + y)
+      //该写法类似参数默认值
+    }
+    fn(1, 2)
+    console.log(1 || 2)//1;
+    console.log(1 && 2)//2;
+
+  </script>
+</body>
+
+</html>

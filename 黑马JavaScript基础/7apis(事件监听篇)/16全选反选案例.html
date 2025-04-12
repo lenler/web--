@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<html>
+
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    /* .ck:checked{
+        被勾选的勾选框
+    } */
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+      border: 1px solid #c0c0c0;
+      width: 500px;
+      margin: 100px auto;
+      text-align: center;
+    }
+
+    th {
+      background-color: #09c;
+      font: bold 16px "微软雅黑";
+      color: #fff;
+      height: 24px;
+    }
+
+    td {
+      border: 1px solid #d0d0d0;
+      color: #404060;
+      padding: 10px;
+    }
+
+    .allCheck {
+      width: 80px;
+    }
+  </style>
+</head>
+
+<body>
+  <table>
+    <tr>
+      <th class="allCheck">
+        <input type="checkbox" name="" id="checkAll"> <span class="all">全选</span>
+      </th>
+      <th>商品</th>
+      <th>商家</th>
+      <th>价格</th>
+    </tr>
+    <tr>
+      <td>
+        <input type="checkbox" name="check" class="ck">
+      </td>
+      <td>小米手机</td>
+      <td>小米</td>
+      <td>￥1999</td>
+    </tr>
+    <tr>
+      <td>
+        <input type="checkbox" name="check" class="ck">
+      </td>
+      <td>小米净水器</td>
+      <td>小米</td>
+      <td>￥4999</td>
+    </tr>
+    <tr>
+      <td>
+        <input type="checkbox" name="check" class="ck">
+      </td>
+      <td>小米电视</td>
+      <td>小米</td>
+      <td>￥5999</td>
+    </tr>
+  </table>
+  <script>
+    //模块1.点击全选 其余小项全部被选
+    //通过监听全选框的点击事件 用循环勾选小项
+    const checkBig = document.querySelector(`#checkAll`);
+    const check = document.querySelectorAll(`.ck`);
+    //设置监听事件
+    checkBig.addEventListener("click", function () {
+      //得到当前大复选框的选中状态
+      console.log(this.checked); //true选中 false未选中
+/*       if (this.checked === true) {
+        for (let i = 0; i < check.length; i++) {
+          check[i].checked = true;
+        }
+      } else if (this.checked === false) {
+        for (let i = 0; i < check.length; i++) {
+          check[i].checked = false;
+        }
+      } */
+      for (let i = 0; i < check.length; i++) {
+          check[i].checked = checkBig.checked;
+          //// 这种写法更好
+        }
+      //记住布尔值不是字符串 不要加引号！！！！
+    });
+
+    //模块2.勾选全部小项 全选自动被勾选
+    //利用css复选框选择器input:checked
+
+    for(let i=0;i<check.length;i++){
+      check[i].addEventListener('click',function(){
+        //判段选中的小复选框的个数 
+        checkBig.checked=document.querySelectorAll(`.ck:checked`).length===check.length//返回值是布尔值
+      })
+    }
+  
+  </script>
+</body>
+
+</html>

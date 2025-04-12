@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  span {
+    width: 100px;
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: gray;
+    margin: 10px;
+  }
+</style>
+
+<body>
+  <script>
+    // js函数和c语言的函数很像 只是数据类型（int等）变成function
+    // 声明
+    function sheet99() {//sheet99函数名
+      for (let i = 1; i <= 9; i++) {
+        for (let j = 1; j <= i; j++) {
+          document.write(`<span>${j}*${i}=${i * j}</span>`)
+        }
+        document.write(`<br>`)
+      }
+    }
+
+    //调用
+    sheet99()
+  </script>
+</body>
+
+</html>

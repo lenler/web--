@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- <input type="text" value="请输入文字"> -->
+  <!-- 以后尽量使用value 不用palcehold -->
+   <input type="checkbox" name="" id="">
+   <button>按钮</button>
+  <script>
+    //表单.value =" 用户名"
+    //1.获取元素
+    // const uname =document.querySelector('input')
+    //2.获取值 获取表单里的值使用value的值 表单里的innerhtml只能获取普通元素的值
+    // console.log(uname.value);
+    //3.设置表单的值
+    // uname.type=`password`
+
+    //通过js勾选复选框
+    //1.获取
+    const input=document.querySelector('input')
+    // console.log(input.checked)//如果勾选默认是ture
+    //2.修改
+    input.checked=true
+    //全选案件思路 利用循环将复选都勾选
+  
+    //控制按钮是否可点击
+    //1获取
+    const button =document.querySelector('button')
+    button.disabled=true//disabled是在询问是否禁用
+  </script>
+</body>
+</html>

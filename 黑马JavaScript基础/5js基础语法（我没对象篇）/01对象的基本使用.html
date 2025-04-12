@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //对象和c语言中的结构体和联合体比较相似
+    //对像是一种复合数据类型，用于将多个值组合在一起
+    let people = {
+      //对象的属性不需要声明类型
+      name: 张三,
+      //队象里的引号可以省略
+      age: 18,
+      height: 180
+      //静态信息 数据是无序的
+    }
+
+    let person = new Object()
+    person.name = `李四`
+    person.age = 20
+    person.height = 190
+    //动态信息 数据是有序的
+
+    people.name = `李四`//修改对象的属性
+  </script>
+</body>
+
+</html>

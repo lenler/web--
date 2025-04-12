@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button>12</button>
+  <script>
+    //事件对象也是对象 含有事件触发时的相关信息
+    //在事件绑定的回调函数的第一个参数就是事件对象
+    //一般命名为event ev e
+    const btn =document.querySelector(`button`)
+    btn.addEventListener(`click`,function(e){
+      console.log(e)
+    })
+    //常用属性 
+    // 1.type 事件触发的类型
+    // 2.clien：鼠标的位置
+    //3.offsetX/Y 获取光标相对于浏览器的位置
+    //4 key 用户按下键盘的值 现在不提倡使用KeyCode
+    
+  </script>
+</body>
+</html>
