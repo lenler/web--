@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="password" name="password">
+  <input type="text" name="comfig">
+  <span name="msg"></span>
+<script>
+  function query(name){
+    return document.querySelector(`[name='${name}']`)
+  }//查找元素函数
+  console.log(query('password'));
+  
+  let inputs =document.querySelectorAll("[name='password'],[name='comfig']")  // 缺少右引号
+  let msg=''
+  console.log(inputs);
+  [...inputs].map(item=>{
+    item.addEventListener('keyup',function(){
+      console.log(1);
+      if(query('password').value!==query('comfig').value)
+      {
+        msg='两次密码不一致'
+      }else{
+        msg='验证正确'
+      }
+      query('msg').innerHTML=msg
+    })
+  })
+</script>
+</body>
+
+</html>
