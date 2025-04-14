@@ -17,34 +17,32 @@
 <body>
   <div></div>
   <script>
-    //日期对象可以得到当前的系统时间
-    //1.实例化
-    //一般new关键字这个操作叫做实例化
-  //获取当前时间
-    const date =new Date()
+    // 1. 实例化日期对象
+    const date = new Date()
     console.log(date)
-  //获得指定的时间
-    const date1 =new Date('2033-3-3 08:00:00')
-    console.log(date1); 
+    
+    const specifiedDate = new Date('2033-3-3 08:00:00')
+    console.log(specifiedDate)
 
-    //2.日期对象的其他方法（日期对象的方法）
-    //一般来说日期对象得到的时间不能直接使用
-    //getFullYear 获取四位数年份
-    //getMonth的取值位0-11所以需要加1使用
-    //getDate()获取日
-    //getDay()获取星期几0~6
-    const data2=new Date()
-    console.log(data2.getFullYear());
+    // 2. 日期对象方法
+    const currentDate = new Date()
+    console.log(currentDate.getFullYear())
+
+    // 3. 格式化日期显示 (修复后的版本)
+    const div = document.querySelector('div')
+    const targetDate = new Date('2008-08-08 08:08:08')
     
-   /*  //在页面打印2008-08-08 08 ：08 ：08
-    const dia =document.querySelector('div')
-    const date3=new Date(`2008-08-08 08:08:08`)
-    dia.innerHTML=`${date3.getFullYear()}-0${date3.getMonth()+1}-0${date3.getDate()} 0${date3.getHours()}:0${date3.getMinutes()}:0${date3.getSeconds()}` */
+    // 补零函数
+    function padZero(num) {
+      return num < 10 ? `0${num}` : num
+    }
     
-</script>
-</body>
-</html>
-tr.innerHTML=`
+    div.innerHTML = `
+      ${targetDate.getFullYear()}-${padZero(targetDate.getMonth()+1)}-${padZero(targetDate.getDate())} 
+      ${padZero(targetDate.getHours())}:${padZero(targetDate.getMinutes())}:${padZero(targetDate.getSeconds())}
+      
+    `
+    tr.innerHTML=`
 <td>${inform.children[0].textContent}</td>
 <td>${inform.children[1].innerHTML}</td>
 <td>${inform.children[2].innerHTML}</td>
@@ -53,4 +51,8 @@ tr.innerHTML=`
 <td>${inform.children[5].innerHTML}</td>
 <td>
   <a href="javascript:">删除</a>
-</td> `     
+</td> `  
+  </script>
+</body>
+</html>
+  

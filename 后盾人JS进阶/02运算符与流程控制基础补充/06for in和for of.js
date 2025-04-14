@@ -13,7 +13,7 @@ for(let k in obj){
 // 遍历数组 - 修正了变量名不一致的问题
 for (const key in arr) {
   console.log(arr[key]);  // 将k改为key保持变量名一致
-}
+}  
 
 // 更推荐使用for...of遍历数组
 // 1. 遍历数组
