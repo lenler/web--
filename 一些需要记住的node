@@ -1,1 +1,35 @@
 // process.stdout.write() 终端输出 不会自动换行
+
+class Person{
+    #name
+    #age
+  
+    constructor(name,age){
+        this.#name=name;
+        this.#age=age;
+    }
+    set age(age){
+        this.#age=age;
+    }
+
+    get age(){
+        return this.#age;
+    }
+
+    get name(){
+        return this.#name;
+    }
+
+    set name(name){
+        this.#name=name;
+    }
+
+    talk(){
+        console.log(`我是：${this.#name}，今年：${this.#age}岁`);
+    }
+  }
+
+  const p=new Person();
+  p.name='张三';
+  p.age=18
+  p.talk()
