@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 数组结构
+    const arr=[1,2]
+    // let [name,year]=arr
+    // console.log(name);
+    
+    //[name,year]=arr//也可以直接这样写 不过不建议这样来写 在严格模式下会报错
+
+// 也可以结构字符串
+let str='hdcms'
+const [...arr1]=str
+console.log(arr1);
+
+// 解构和展开语法的组合运用
+let [name,...arg]=['2323','2','1','2']
+console.log(arg);
+
+
+  </script>
+</body>
+</html>

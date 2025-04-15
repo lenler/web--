@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  body{
+    width: 100vh;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #34495e;
+  }
+  div{
+    font-size: 5em;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #995e9a;
+  }
+  div span{
+    position: relative;
+    display: inline-block;
+  }
+  .color{
+    animation: color linear 1s  alternate;
+  }
+
+  @keyframes color {
+    50%{
+      color:#adf6e3;
+      transform: scale(2);
+    }to{
+      color: #775ae8;
+      transform: scale(0.5);
+    }
+  }
+</style>
+<body>
+  <div>我勒个都豆豆豆豆豆豆</div>
+<script>
+  const div=document.querySelector('div');
+
+  [...div.innerText].reduce(function(pre,cur,index){
+    pre===index&&(div.innerHTML='');
+    let span=document.createElement('span');
+    span.innerHTML=cur
+    div.appendChild(span)
+    span.addEventListener('mouseover',function(){
+      this.classList.add('color');
+    })
+
+    // 这里是监听动画结束的事件
+    span.addEventListener('animationend',function(){
+      this.classList.remove('color')
+    })
+  },0)
+
+</script>
+</body>
+</html>
