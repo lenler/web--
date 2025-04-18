@@ -1,4 +1,4 @@
-// process.stdout.write() 终端输出 不会自动换行
+   // process.stdout.write() 终端输出 不会自动换行
 
 class Person{
     #name

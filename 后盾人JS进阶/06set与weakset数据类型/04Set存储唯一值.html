@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  body{
+    justify-items: center;
+    align-items: center;
+    
+  }
+</style>
+<body>
+  <input type="text" name="input" />
+  <ul></ul>
+</body>
+<script>
+let obj={
+  data:new Set(),
+  set(word){
+    this.data.add(word)
+  },
+  show(){
+    let ul=document.querySelector('ul')
+    ul.innerHTML=''
+    this.data.forEach(element => {
+      ul.innerHTML+=`<li>${element}</li>`
+    });
+  }
+};
+let input=document.querySelector('[name="input"]')
+input.addEventListener('blur',function(e){
+  obj.set(this.value);
+  obj.show()
+  input.value=''
+})
+
+</script>
+</html>

@@ -4,6 +4,9 @@ set.add(1);
 set.add(1);
 set.add(1);
 console.log(set);
+// 如果定义的时候 set里面是字符串就会把字符串的个字符当作元素
+let sets=new Set("hdcms")
+console.log(sets);//Set(5) { 'h', 'd', 'c', 'm', 's' }
 
 //增
 set.add(1);

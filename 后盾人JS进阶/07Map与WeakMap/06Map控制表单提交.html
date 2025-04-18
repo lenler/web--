@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form action="" onsubmit="return post()">
+    服务协议
+    <input type="checkbox" error="请勾选协议" />
+    权限管理
+    <input type="checkbox" error="请勾选权限管理" />
+  
+    <input type="submit" value="提交" />
+  </form>
+</body>
+<script>
+function post(){
+  // 获取所有带有error属性的元素（这里是复选框）
+  let error=document.querySelectorAll('[error]');
+  // 创建Map对象来存储元素及其验证信息
+  let map=new Map()
+  
+  // 遍历每个元素，将其存入Map
+  error.forEach((item)=>{
+    map.set(item,{
+      error:item.getAttribute("error"),  // 存储错误提示信息
+      state:item.checked  // 存储复选框的选中状态
+    });
+  });
+  
+  // 将Map转换为数组（这里变量名应该保持一致）
+  let newMap=[...map];
+  
+  // 检查每个复选框的状态，如果未选中则显示错误提示
+  return newMap.every(([item,check])=>{
+    if(!check.state) {
+      alert(check.error);  // 显示错误提示
+      return false;       // 验证失败
+    }
+    return true;          // 验证通过
+  });
+}
+// 这里不需要立即调用post()，应该由表单提交时触发
+</script>
+</html>

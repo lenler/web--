@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div name="后盾人">niaho</div>
+  <div name="hdcms">bie'dian'wo</div>
+</body>
+<script>
+  let divs=document.querySelectorAll('div')
+  let map=new Map()
+
+  divs.forEach(element => {
+    map.set(element,{
+      content:element.getAttribute('name')
+    })
+  });
+  console.log(map);
+
+  map.forEach((content, divitem) => {
+    divitem.addEventListener("click", () => {
+      alert(content.content);  // 改为 content.content
+    });
+  });
+</script>
+</html>
