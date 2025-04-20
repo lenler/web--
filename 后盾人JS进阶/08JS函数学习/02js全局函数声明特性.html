@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function name(){
+      console.log(name);
+    }
+    window.name()
+    console.log(window);//当我们声明函数后js会自动将函数付费window 这是很难受的
+    // 当我们不小心声明到了window自带的同名函数之后 会覆盖原有的函数 导致原有的方法失效
+    function innerWidth(){
+      console.log("我是同名函数");
+    }
+    //调用原有的函数就会失效
+    window.innerWidth()
+    // 可以利用let或者const定义函数,这时用window去调用的时候不会调用到
+    let getusername = function() {
+      console.log("name");
+    };
+    getusername();
+  </script>
+</body>
+</html>

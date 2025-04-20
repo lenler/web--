@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>hdcms</div>
+    <div>houdenren</div>
+    <script>
+        // - Map ：键可以是任意类型（对象、基本类型如字符串、数字等）。
+        // - WeakMap ：键只能是对象，不能是基本类型。
+        let divs=document.querySelectorAll('div')
+        let map=new WeakMap()
+        divs.forEach(item=>map.set(item,item.innerHTML))
+
+        let arr=[];
+        let map2=new WeakMap();
+        map.set(arr,'houdunren.com')
+        map2.delete(arr)//返回true
+        console.log(map2.has(arr))//false
+        console.log(map2);
+        //WeakMap 里面很多Map的方法不能使用 原因就是WeakMap是弱引用类型
+        console.log(map2);
+        
+    </script>
+</body>
+</html>

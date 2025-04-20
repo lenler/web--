@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    (function() {
+    function show() {
+        console.log("1.js.show()");
+    }
+    window.js1 = { show };
+    })();
+    (function() {
+    function show() {
+        console.log("2.js.show()");
+    }
+    window.js12 = { show };
+    })();
+   js1.show()
+   js12.show()
+    // 上下两种方法效果相同，都是为了让函数包含在一个块机作用域中，不是暴露在全局
+    {
+    function show() {
+        console.log("1.js.show()");
+    }
+    window.js1 = { show };
+    }
+  </script>
+</body>
+</html>

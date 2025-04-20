@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .kecheng {
+  width: 300px;
+  float: left;
+}
+
+.xuanran {
+  width: 300px;
+  float: left;
+  margin-top: 11px;
+}
+
+ul {
+  list-style: none;
+}
+
+ul > li {
+  border: 2px solid red;
+  margin: 2px;
+  width: 200px;
+  padding: 5px;
+  position: relative;
+}
+
+li > a {
+  text-decoration: none;
+  position: absolute;
+  right: 15px;
+  background-color: green;
+  color: white;
+  width: 21px;
+  text-align: center;
+  border-radius: 3px;
+}
+.plck {
+  padding-left: -5px;
+  padding-top: 20px;
+}
+.plck > span {
+  background-color: green;
+  color: white;
+  padding: 3px;
+  border-radius: 2px;
+  margin: 5px;
+}
+</style>
+<body>
+  <div class="main">
+    <!-- 课程区域 -->
+    <div class="kecheng">
+      <ul>
+        <li><span>css</span> <a href="javascript:;">+</a></li>
+        <li><span>html</span> <a href="javascript:;">+</a></li>
+        <li><span>js</span> <a href="javascript:;">+</a></li>
+        <li><span>vue</span> <a href="javascript:;">+</a></li>
+        <li><span>小程序</span> <a href="javascript:;">+</a></li>
+      </ul>
+    </div>
+    <!-- 渲染区域 -->
+    <div class="xuanran">
+      <div class="info">当前一共选择了0门课程</div>
+      <div class="plck"></div>
+    </div>
+  </div>
+</body>
+</html>

@@ -17,14 +17,24 @@ var mergeTwoLists = function(l1head, l2head) {
   while(l1head!==null&&l2head!==null){
     if(l1head.val<=l2head){
       cur.next=l1head
+      // 移动l1
       l1head=l1head.next
     }else{
+      // 移动l2
       cur.next=l2head
       l2head=l2head.next
     }
+    // 移动cur
     cur=cur.next
   }
   // 如果两个链表不等长 处理剩余链表
   cur.next=l1head===null?l2head:l1head;
   return pre.next//传递原始的头节点
 };
+
+// 递归
+function mergeTwoLists(l1,l2){
+  if(l1===null){
+    return l2 
+  } 
+}
