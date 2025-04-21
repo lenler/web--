@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>我好看点我</button>
+    <button>我比他更好看 点我</button>
+</body>
+<script>
+    let bottons=document.querySelectorAll('button');
+    function show(){
+        alert(this.innerHTML)
+    }
+    for(let i=0;i<bottons.length;i++){
+        bottons[i].addEventListener('click',(e)=>{
+            show.call(e.target)
+        })
+    }
+</script>
+</html>

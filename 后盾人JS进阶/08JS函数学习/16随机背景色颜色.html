@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        align-items: center;
+        justify-self: center;
+        display: flex;
+        height: 100vh;
+        margin: 0;
+        transition: background-color 0.5s;
+    }
+</style>
+<body>
+<h1>woshiyifei</h1>
+<script>
+        function Color(e){
+            //这里的e就是背景板 指定e为背景板
+            this.e=e
+            this.Color=['#1abc9c','#f1c40f','#9b9b9f',"#f63c45"];
+            this.run=function(){
+                setInterval(
+                    function(){
+                    //这里的this指的是window
+                    let i=Math.floor(Math.random()*this.Color.length)
+                    this.e.style.backgroundColor=this.Color[i]
+                }.bind(this),
+                1000);
+            }
+        }
+        let obj=new Color(document.body)
+        obj.run()
+    </script>
+</body>
+</html>
