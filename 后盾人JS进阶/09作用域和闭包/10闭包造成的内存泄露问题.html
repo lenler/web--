@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width='device-width', initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div name="zhangsan">zhangsan</div>
+    <div name="lisi">lisi</div>
+    <script>
+        let divs=document.querySelectorAll('div');
+/*         divs.forEach(item=>{
+            item.addEventListener('click',function(){
+                console.log(item.getAttribute('name'));
+            console.log(item);
+            })
+        }) */
+        // 在内存管理上上述代码会造成内存泄露，因为闭包的原因，item会被保存下来，
+        divs.forEach((item)=>{
+            let name=item.getAttribute('name');
+            item.addEventListener('click',function(){
+                // 在这个版本中，item被保存下来，但是在点击事件中，name被保存下来，而name只是个字符串 而不是dom对象，所以不会造成内存泄露
+                console.log(name);
+            })
+            item=null;
+        })
+    
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    button{
+        position: relative;
+        left:0;
+        transition: left 1s;
+    }
+</style>
+<body>
+  <button>wow</button>
+  <button>qwq</button>
+  <script>
+    let btns = document.querySelectorAll('button');
+    btns.forEach(item=>{
+      let left = 0;//每次点击都会创建一个新的环境
+      item.addEventListener('click',function(){
+          // 为了避免多次点击按钮出现抖动现象 将left放到外面
+          setInterval(() => {
+              item.style.left = left+'px';
+              left++;
+          }, 10);
+      })
+    })
+  </script>
+</body>
+</html>
