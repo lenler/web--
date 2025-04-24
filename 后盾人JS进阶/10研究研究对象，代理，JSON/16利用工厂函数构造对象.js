@@ -9,3 +9,4 @@ function Person(name){
 }
 let p1=Person('张三')
 p1.show()
+// 工厂函数创建的对象是没有原型的

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" v-model="title" />
+    <input type="text" v-model="title"/>
+    <h4 v-bind='title'></h4>
+</body>
+<script>
+    //实现双向数据绑定
+    function view(){
+        let proxy=new Proxy({},{
+            get(obj,property){
+                // get里面第一个是你需要绑定的对象 第二个是你需要绑定的属性
+                return obj[property]
+            },
+            set(obj,property,val){       
+            document.querySelectorAll(`[v-model="${property}"]`).forEach(item=>{
+                item.value=val
+            })
+            document.querySelectorAll(`[v-bind="${property}"]`).forEach(item=>{
+                item.innerHTML=val
+            })
+        }
+        })
+
+        //绑定对象
+        this.init=document.querySelectorAll('[v-model]')
+        this.init.forEach(item=>{
+            item.addEventListener('keyup',function(e){
+                proxy[item.getAttribute('v-model')]=e.target.value
+            })
+        }) 
+
+    
+    }
+    view()
+</script>
+</html>

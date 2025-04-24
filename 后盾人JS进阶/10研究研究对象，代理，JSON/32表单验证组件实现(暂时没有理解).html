@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+账号：
+<input type="text" validate rule="max:12,min:3" />
+密码：
+<input type="number" validate rule="max:3" />
+</body>
+<script>
+// 公共验证类
+class Validate {
+  // 最小值
+  min(val, len) {
+    return val.length >= len;
+  }
+  // 最小值
+  max(val, len) {
+    return val.length <= len;
+  }
+  // 是否是数字
+  isNumber(val) {
+    console.log(typeof val);
+    return typeof val === "number";
+  }
+}
+const validate = new Validate();
+// 调用类里面的方法
+// console.log(validate.max("fsdfssdf", 5));
+// console.log(validate.min("sdfsdfsdfsdfsdfsd", 9));
+// console.log(validate.isNumber(1));
+
+function proxyFun(target) {
+  return new Proxy(target, {
+    get(val, key) {
+      // 循环遍历的时候调用了读取方法，返回整个元素数据
+      return val[key];
+    },
+    set(val, key, elm) {
+      // 输入内容时获取到rule属性里面的规则，用逗号分开
+      const ruledata = elm.getAttribute("rule").split(",");
+      // 遍历所有的规则，every只要有一个返回false就不再继续执行
+      const state = ruledata.every((item) => {
+        const ruledata = item.split(":");
+        // 引用上面的公共验证类，校验输入内容是否符合要求
+        return validate[ruledata[0]](elm.value, ruledata[1]);
+      });
+      // 验证失败添加error类
+      elm.classList[state ? "remove" : "add"]("error");
+      // 验证成功添加success类
+      elm.classList[!state ? "remove" : "add"]("success");
+      return true;
+    },
+  });
+}
+const els = proxyFun(document.querySelectorAll("[validate]"));
+els.forEach((item, index) => {
+  item.addEventListener("keyup", function() {
+    els[index] = this;
+  });
+});
+
+</script>
+</html>
