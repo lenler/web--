@@ -33,3 +33,7 @@ class Person{
   p.name='张三';
   p.age=18
   p.talk()
+
+
+
+
