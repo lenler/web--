@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let hd = {
+  name: "李四",
+};
+console.log(hd);
+console.log(hd.__proto__);
+
+// Object.create方式创建的元素不会有原型
+// 完全 数据字典对象
+let newhd = Object.create(null, {
+  name: {
+    value: "李四",
+  },
+});//这个方法也可以指定原型对象来创建对象
+console.log(newhd);
+console.log(newhd.__proto__); // undefined
+    </script>
+</body>
+</html>

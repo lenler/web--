@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 通俗理解原型就是一个对象的父母 
+        // 原型链就相当于家谱
+        let obj={}
+        console.log(obj.__proto__);//Object
+        console.log(obj.__proto__.__proto__);//null
+        console.log(Object.getPrototypeOf(obj));//Object
+        
+    </script>
+</body>
+</html>
