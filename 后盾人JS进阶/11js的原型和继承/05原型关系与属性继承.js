@@ -16,10 +16,6 @@ console.log(User.prototype);
 //  
 
 
-
-
-
-
 // 1.前提 每次声明对象都是 构造函数通过new 来创建的  
 // 2.前提 每个函数天生自带一个prototype属性 这个属性是一个对象
 // 3.前提 每个对象天生自带一个__proto__属性 这个属性是一个对象,prototype是对象他也有__proto__属性
