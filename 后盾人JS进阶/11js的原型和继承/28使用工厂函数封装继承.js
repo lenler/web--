@@ -24,3 +24,10 @@ function Mumber(...args) {
   extend(Mumber, User);
   let mumber = new Mumber("李四", 18);
   mumber.show()
+
+
+  //练习 继承函数
+  function extend(sub,sup){
+    sub.prototype=Object.create(sup.prototype);
+    sub.prototype.constructor=sub;
+  }

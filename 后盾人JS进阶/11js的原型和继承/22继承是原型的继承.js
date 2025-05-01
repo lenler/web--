@@ -7,6 +7,7 @@ function Admin(){}
 // 正确继承：让 Admin.prototype 通过 Object.create 继承 User.prototype，避免原型链污染
 // Admin.prototype.__proto__ = User.prototype;
 Admin.prototype = Object.create(User.prototype);
+Admin.prototype.constructor = Admin;
 Admin.prototype.role = ()=>{
     console.log("role");
 };
