@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button message="后盾人" class="red">houdunr</button>
+    <button message="hdcms">hdcms</button>
+</body>
+<script>
+    let btns=document.querySelectorAll('button');
+    console.log(Array.prototype.filter.call(btns,function(item){
+        return item.hasAttribute('class');
+    }));//节点方法都借用
+    
+</script>
+</html>

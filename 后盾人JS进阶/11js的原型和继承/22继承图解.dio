@@ -1,0 +1,134 @@
+<mxfile host="65bd71144e">
+    <diagram id="ywgVMRC5ERKXuwRdHmtN" name="第 1 页">
+        <mxGraphModel dx="621" dy="744" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="4" value="错误方法继承是这样的" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=#FF0000;" vertex="1" parent="1">
+                    <mxGeometry x="143" y="30" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="5" target="6">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="构造函数User" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="163" y="110" width="80" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="6" target="11">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="user.prototype" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="300" y="90" width="120" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="Object.prototype" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="430" width="50" height="47.5" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="__proto__" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="355" y="47.5" width="80" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="14" target="6">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="构造函数Admin" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="100" y="249.75" width="90" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="15" target="19">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="Admin.prototype" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="228" y="255" width="86" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.144;entryY=0.109;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="15" target="15">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="Admin.prototype=User.prototype" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="80" y="190" width="200" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="所以因为赋值的操作这个原型对象就被舍弃了" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="214" y="289.75" width="86" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="22" target="6">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="构造函数Number" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="446" y="249.75" width="110" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="Number.prototype" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="596" y="257.25" width="86" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="所以因为赋值的操作这个原型对象就被舍弃了" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="600" y="305" width="86" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.492;entryY=-0.041;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="25">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="638.3119999999999" y="299.9950000000001" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="30" value="Number.prototype=User.prototype" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="396" y="180" width="200" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" value="问题来了 这样做有什么问题呢？我们不妨为Admin设置一个叫show的方法 那么这个方法将被挂载在User.prototype的下面，就会导致Number也可以访问同一个方法，但是我们本来的想法是Number的show方法和Admin是不同的，但是现在因为原型链的直接赋值 ，两个方法被迫一样了 这就造成了原型污染" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="70" y="360" width="570" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="32" value="正确方法示范" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=#33FF33;" vertex="1" parent="1">
+                    <mxGeometry x="143" y="478" width="100" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="34" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="35" target="37">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="35" value="构造函数User" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="173" y="585" width="80" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="36" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="37">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="449" y="501" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="37" value="user.prototype" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="305" y="560" width="120" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="38" value="__proto__" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="366" y="507.5" width="80" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="53" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="39" target="41">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="39" value="构造函数Admin" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="795" width="90" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="56" style="edgeStyle=none;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="41" target="37">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="41" value="Admin.prototype" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="190" y="710" width="86" height="57.5" as="geometry"/>
+                </mxCell>
+                <mxCell id="59" style="edgeStyle=none;html=1;exitX=0.25;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="44" target="37">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="44" value="构造函数Number" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="435" y="710" width="92.5" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="58" style="edgeStyle=none;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="45" target="44">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="45" value="Number.prototype" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="596" y="800" width="86" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="51" value="Object.prototype" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="430" y="460" width="50" height="47.5" as="geometry"/>
+                </mxCell>
+                <mxCell id="62" value="__proto__" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="231" y="660" width="80" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="63" value="__proto__" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="414" y="660" width="80" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="64" value="这样同样是设置一个方法show 这时候Admin和Number的show方法就不会互相影响了" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="130" y="818" width="470" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="65" value="而且不影响他们共用User中的方法" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="171" y="848" width="200" height="30" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
