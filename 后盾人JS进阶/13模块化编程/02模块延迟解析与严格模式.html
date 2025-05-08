@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script type="module">
+    // 模块延迟解析  
+    console.log(document.querySelector('button'));
+    //在设置好属性之后 我们发现即使script在button后面 也可以正常获取到button元素
+    // 这就是模块延迟解析 它会在所有的模块代码都加载完之后 再去执行模块代码    
+    //并且使用模块时 代码块是默认为严格模式
+</script>
+<body>
+    <button></button>
+</body>
+</html>

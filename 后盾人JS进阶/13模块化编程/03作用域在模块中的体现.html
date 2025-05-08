@@ -1,0 +1,17 @@
+<!-- //每个模块都有自己独立的作用域，自己模块中获取不到其他模块作用域的数据 -->
+<script>
+    // 非模块定义在其他模块可以使用
+    let url = "定义外部变量";
+  </script>
+  
+  <script type="module">
+    let title = "标题";
+    console.log(title); // 标题
+    console.log(url); // 定义外部变量
+  </script>
+  
+  <script type="module">
+    // 每个模块都有自己的作用域,其他模块拿不到其他模块定义的变量
+    // console.log(title); title is not defined
+    console.log(url); // 定义外部变量
+  </script>
