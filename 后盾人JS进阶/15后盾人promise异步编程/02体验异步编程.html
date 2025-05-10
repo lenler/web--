@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>   
+    <script>
+    function loadImg(src,resolve,reject){
+        let image=new Image();
+        image.src=src;
+        image.onload=()=>{
+            resolve(image);
+        };
+        image.onerror=reject;
+    }//这就是一个文件加载的模块
+    //这里就是一个典型的回调传参
+    loadImg("./Saved Pictures/Snipaste_2025-04-29_14-49-11.png",(image)=>{
+        document.body.appendChild(image);
+        console.log('加载成功');
+    },()=>{
+        console.log('加载失败');
+    });
+    console.log('111');
+    </script>
+</html>

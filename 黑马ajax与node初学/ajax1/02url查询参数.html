@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+ <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> 
+ <script>
+        //url查询参数
+        axios({
+            url:'http://hmajax.itheima.net/api/city',
+            //查询参数
+            params:{
+                pname:'河北省'
+            }
+        }).then(res=>{
+            console.log(JSON.stringify(res.data.list,null,2));
+            res.data.list.forEach(element => {
+                let p = document.createElement('p');
+                p.innerHTML = element;
+                document.body.appendChild(p);
+            });
+        })
+    </script>
+</body>
+</html>

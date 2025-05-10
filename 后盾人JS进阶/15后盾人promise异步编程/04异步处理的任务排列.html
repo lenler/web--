@@ -1,0 +1,35 @@
+//就是先进先出 先执行完一个再执行下一个 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function lode(scr,resolve){
+            console.log("我先执行");//在主进程里面 先按顺序执行
+            let script=document.createElement('script');
+            script.src=scr;
+            script.onload=resolve;
+            document.body.appendChild(script);
+        }
+/*         lode('./00 test.js',()=>{
+            hd();//主进程执行之后 在执行回调函数
+        })
+        lode('./00 test2.js',()=>{
+           houdun()
+        }) */
+        //什么的情况 会发现偶尔会出错 是因为两个加载模块执行的顺序可能会不同 为了解决就需要嵌套
+        lode('./00 test.js',()=>{
+            hd()//保证我先执行
+            lode('./00 test2.js',()=>{
+                houdun();
+            })
+        })//但是嵌套很麻烦 不便于阅读 还会陷入回调地狱 所以就有了promise
+        console.log("你好 我第二执行");//主进程里面的代码
+
+</script>
+</body>
+</html>

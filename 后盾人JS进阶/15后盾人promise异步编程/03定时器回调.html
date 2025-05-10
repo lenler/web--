@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box{
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        background-color: greenyellow;
+    }
+</style>
+<body>
+    <div class="box"></div>
+</body>
+<script>
+    function Interval(callback,time){
+        let id=setInterval(()=>{
+            callback(id);//这里将id作为参数传递给回调函数
+        },time)
+    }
+    let box=document.querySelector('.box');
+    box.style.width = '400px'; // 保证初始宽度有值
+    Interval((id)=>{
+        let left=parseInt(window.getComputedStyle(box).left);
+        box.style.left=left+10+'px';
+        if(left>=300){
+            clearInterval(id);
+            Interval((id)=>{
+                let width=parseInt(box.style.width);
+                console.log('当前width:', width); // 调试输出
+                if(width>0){
+                    box.style.width=(width-10)+'px';
+                }
+                if(width<=0){
+                    clearInterval(id);
+                }
+            },100)
+        }
+    },100)
+</script>
+</html>
