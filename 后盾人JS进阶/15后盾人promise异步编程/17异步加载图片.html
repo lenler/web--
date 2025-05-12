@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function loadImg(src){
+            return new Promise((resolve,reject)=>{
+                const Img=new Image();
+                Img.src=src;
+                Img.onload=function(){
+                    resolve(Img);
+                }
+                Img.Onerror=reject;
+                document.body.appendChild(Img);
+            })
+        }
+        loadImg('./Saved Pictures/Snipaste_2025-04-29_14-49-11.png').then(img=>{
+            console.log(img);
+            img.style.width='500px';
+            img.style.height='500px';
+        })
+    </script>
+</body>
+</html>
