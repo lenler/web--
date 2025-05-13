@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./13使用promise封装AJAX异步请求.js"></script>
+    <script>
+        let hd={
+            then(resolv,reject){
+                resolv(1);  
+            }
+        }
+        Promise.reject(hd).then(value=>{
+            console.log(value);
+        })//这里就是把一个对象作为参数传递给了then方法  这里的then方法是Promise的原型方法  所以这里的then方法是一个成功的回调函数  所以这里的then方法会被执行  并且会把1作为参数传递给then方法
+
+        //现在来看默认失败的回调函数
+        Promise.reject('fail').then(value=>{
+            console.log(value);
+        },reason=>{
+            console.log(reason);
+        })
+
+        //用处 在某些时候出现了出乎意料的错误
+        new Promise((resolv ,reject)=>{
+            resolv(2);
+        }).then(value=>{
+            if(value!=1){
+                return Promise.reject('参数错误');
+            }
+        }).catch(res=>{
+            console.log(res);
+        })//就是很精妙
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./13使用promise封装AJAX异步请求.js"></script>
+    <script>
+        Promise.resolve(1).then(value=>{
+            console.log(value)
+        })//默认这里是成功状态
+        let urls="http://localhost:3000/api/user"
+        function query(url){
+            const cache=query.cache||(query.cache=new Map())//缓存 使用map键值对的形式来存储
+            if(cache.has(url)){//每次请求时先判断是否存在缓存
+                console.log('缓存中');
+                return Promise.resolve(cache.get(url));//如果有缓存 就直接返回缓存的结果 直接默认成功状态 返回结果并且执行then方法
+            }
+            //如果没有缓存 就重新请求
+            return ajax(url).then(value=>{
+                cache.set(url,value);//将新的请求存储起来
+                console.log('缓存中没有');
+                return value;//返回请求内容
+            })
+        }
+        query(urls).then(value=>{
+            console.log(value);
+        });
+/*         setInterval(() => {
+            query().then(value=>{
+                console.log(value);
+            });
+        }, 1000); */ //这样模拟高频请求 我们不希望有那么多请求  我们希望只请求一次  然后把请求的结果缓存起来  后面再使用的时候直接使用缓存的结果 所以我们来把原函数改造一下
+        setInterval(() => {
+            query(urls).then(value=>{
+                console.log(value);
+            });
+        }, 1000);
+    </script>
+</body>
+</html>

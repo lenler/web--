@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function loadScript(scr){
+            return new Promise((resolv,reject)=>{
+                const script=document.createElement('script');
+                script.src=scr;
+                script.onload=()=>{
+                    resolv(script);
+                }
+                script.onerror=reject;
+                document.head.append(script);
+            })
+        }
+
+        loadScript('./20.1hd.js').then(
+            script=>{
+                hd();
+                return loadScript('./20.2houdun.js')//复习一下 这里return 返回的是一个promise对象 也就是一个新的Promise
+            }
+        ).then(
+            script=>{
+                houdun();
+            }
+        )
+    </script>
+</body>
+</html>
