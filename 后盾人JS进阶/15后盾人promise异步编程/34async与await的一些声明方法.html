@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./13使用promise封装AJAX异步请求.js">
+    </script>
+    <script>
+        //函数
+/*        async function getData(){
+            return await ajax('http://localhost:3000/api/user')
+        }
+        getData().then(res=>{
+            console.log(res);
+        }) */
+
+        //对象
+/*        let hd={
+            async getData(){
+                 return await ajax('http://localhost:3000/api/user')
+            }  
+       }
+       hd.getData().then(res=>{
+           console.log(res);
+       }) */
+
+       //类
+       class hd{
+           async getData(){
+                return await ajax('http://localhost:3000/api/user')
+           }
+       }
+       let h=new hd()
+       h.getData().then(res=>{
+           console.log(res);
+       })
+    </script>
+</body>
+</html>
