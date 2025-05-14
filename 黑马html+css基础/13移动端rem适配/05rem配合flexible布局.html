@@ -1,0 +1,21 @@
+<!-- flexible.js根据不同视口宽度给网页中html根节点设置不同的font-size -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 3rem;
+            height: 3rem;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <!-- 只要调用js文件 就可以自动移动适配 不需要自己写媒体查询 -->
+    <script src="./js/flexible.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         .box{
+            width: 200px;
+            height: 100px;
+            background-color: pink;
+            /* animation 拆分属性测试*/
+            animation-name: change;
+            /* 动画时长 */ 
+            animation-duration: 2s;
+           
+            /* 动画延迟时间 */
+            /* animation-delay: 1ms; */
+
+            /* 动画执行完毕状态 */
+            /* animation-fill-mode: forwards; */
+
+            /* 动画速度曲线 steps（）逐帧动画 */
+            /* animation-timing-function:  leaner; */
+
+            /* 动画执行次数 */                    
+            animation-iteration-count: infinite;
+           
+            /* 动画方向 */
+            animation-direction: alternate;
+ 
+        }
+        .box:hover{
+            /* 暂停动画 通常搭配hover使用 */
+            animation-play-state: paused;
+        }
+        @keyframes change{
+            from{
+                background-color: pink;
+                width: 200px;
+            }
+            to{
+                background-color: orange;
+                width: 800px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

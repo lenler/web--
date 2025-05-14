@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* transform :translate(x轴 y轴) 
+    其中 translate（）只写一个值表示x轴方向移动
+    两个值表示x轴和y轴方向移动
+    移动的单位是像素单位
+    translatex（）表示x轴方向移动
+    translatey（）表示y轴方向移动
+
+    i像素单位 或者 相对盒子自身尺寸，不是盒子父级的百分比
+    */
+    .father{
+       width: 500px;
+       height: 500px;
+       background-color: pink; 
+    }
+    .son{
+        width: 200px;
+        height: 200px;
+        background-color: skyblue; 
+        transition: all 1s;
+    }
+
+    .father:hover .son{
+        transform: translate(100px,100px); 
+    }
+</style>
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+</body>
+</html>

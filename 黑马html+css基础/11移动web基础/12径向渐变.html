@@ -1,0 +1,28 @@
+<!-- 从圆心到周围渐变 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<style>
+    /* bgi:radial-gradient:( 半径 at 园心位置 如果写两条半径就是椭圆 ，颜色1 位置 ，颜色2 位置) */
+    div{
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background-color: pink;
+        background-image: radial-gradient(50px at 50% 50%,red,green);
+    }
+    button{
+        width: 100px;
+        height: 100px;
+        background-image: radial-gradient(50px at 50% 50%,red,green);
+    }
+</style>
+</head>
+<body>
+    <div></div>
+    <button></button>
+</body>
+</html>

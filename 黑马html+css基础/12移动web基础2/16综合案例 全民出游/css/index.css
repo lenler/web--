@@ -1,0 +1,128 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+/* 整个页面的大背景 */
+html{
+    /* html的父级是浏览器页面 */
+    height: 100%;
+}
+body{
+    /* body的父级是html */
+    height: 100%;
+    /* 为了让显示器适应 */
+    background-position: center 0;
+    background-repeat: no-repeat;
+    background-image: url(../images16/f1_1.jpg);
+    /* 记得复习 */
+    background-size: cover;
+}
+
+/* 云彩摆放 */
+/* 思路 先用定位放到水平居中 然后依次向左右挪位置 */
+.yun img{
+    /* 直接相对于整个浏览器 不用给父级加位置 */
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.yun img:nth-child(1){
+    top: 20px;
+    margin-left: -300px;
+    animation: yun 8s infinite alternate;
+}
+
+.yun img:nth-child(2){
+    top: 100px;
+    margin-left: 400px;
+    animation: yun 10s 2s infinite alternate;
+}
+
+.yun img:nth-child(3){
+    top: 200px;
+    margin-left: -600px;
+    animation: yun 8s infinite alternate;
+}
+
+/* 云彩动画 */
+
+@keyframes yun{
+    100%{
+        transform: translate(20px);
+    }
+}
+
+/* 热气球 */
+.popo img{
+    position: absolute;
+    left: 29%;
+    top: 110px;
+    animation: popo 2s infinite alternate;
+}
+@keyframes popo{
+    100%{
+        transform: translatey(40px);
+    }
+}
+/* 长颈鹿 */
+.lu img{
+    position: absolute;
+    left: 58.3%;
+    top: 160px;
+}
+/* 小气泡 */
+.bubble img{
+    position: absolute;
+    top: 76%;
+    left: 50%;
+}
+
+.bubble img:nth-child(1){
+    margin-left: -400px;
+    animation: bubble 1s infinite alternate;
+}
+
+.bubble img:nth-child(2){
+    margin-left: -200px;
+    animation: bubble 1s infinite alternate 0.2s;
+}
+
+.bubble img:nth-child(3){
+    animation: bubble 1s infinite alternate 0.3s;
+}
+
+.bubble img:nth-child(4){
+    margin-left: 200px;
+    animation: bubble 1s infinite alternate 0.4s; 
+}
+
+@keyframes bubble{
+    100%{
+        transform: translateY(20px);
+    }
+}
+/* 周边文字 */
+.word img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    animation: text 1s;
+}
+
+@keyframes text{
+    0%{
+        /* 为了避免层叠 写代码都要把原有的translate加到动画中 */
+        transform: translate(-50%,-50%) scale(1);
+    }
+    20%{ transform: translate(-50%,-50%) scale(0.1);
+    }
+    40%{ transform: translate(-50%,-50%) scale(1.4);
+    }
+    70%{ transform: translate(-50%,-50%) scale(0.8);
+    }
+    100%{ transform: translate(-50%,-50%) scale(1);
+    }
+}

@@ -1,0 +1,25 @@
+<!-- css精灵 css sprites 用于把很多背景图整合到一张图片中 再使用background-position定位 -->
+<!-- 提高页面加载速度 -->
+<!-- 1.创建盒子,盒子尺寸和小图尺寸相同 -->
+<!-- 2.设置盒子背景图为精灵图 -->
+<!-- 添加background-position定位 用像素大厨找到坐标 然后取负口号了 -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 112px;
+            height: 110px;
+            background-color: skyblue;
+            background-image: url(./images/abcd.jpg);
+            background-position: -256px -276px;
+        }
+    </style>
+ </head>
+ <body>
+    <div></div>
+ </body>
+ </html>

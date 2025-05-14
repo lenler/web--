@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            height: 270px;
+            width: 1420px;
+            border: 5px solid #000;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+        ul{
+            list-style: none;
+            display: flex;
+            animation: move linear 6s infinite;
+        }
+        /* 思路让ul向左移动 */
+        /* 定义位移动画 */
+        @keyframes move{
+            from{
+                transform: translateX(0);
+            }
+            to{
+                transform: translateX(-3360px);
+            }
+        }
+        ul:hover {
+            animation-play-state: paused;            
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <ul>
+            <li><img src="./1.jpg" alt=""></li>
+            <li><img src="./2.jpg" alt=""></li>
+            <li><img src="./3.jpg" alt=""></li>
+            <li><img src="./4.jpg" alt=""></li>
+            <li><img src="./5.jpg" alt=""></li>
+            <li><img src="./6.jpg" alt=""></li>
+            <li><img src="./7.jpg" alt=""></li>
+            <!-- 循环 -->
+             <!-- 实现无缝动画 需要累加图片 图片累加的宽度需要大于等于容器的宽度 s-->
+            <li><img src="./1.jpg" alt=""></li>
+            <li><img src="./2.jpg" alt=""></li>
+            <li><img src="./3.jpg" alt=""></li>
+            <!-- <li><img src="./4.jpg" alt=""></li>
+            <li><img src="./5.jpg" alt=""></li>
+            <li><img src="./6.jpg" alt=""></li>
+            .
+            
+            <li><img src="./7.jpg" alt=""></li> -->
+        </ul>
+    </div>
+   
+</body>
+</html>

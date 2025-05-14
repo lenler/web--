@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 空间（3d）转换中的z轴和视线方向相同  z的正数方向指向用户*/
+        /* 3d转换的属性 */
+        /* transform:translate3d(x,y,z) 或者写translatex()等等 */
+        /* 默认状态下z轴的平移看不见 */
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+        .box:hover{
+            /* 3d转换 */
+            transform: translate3d(0,0,100px);
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

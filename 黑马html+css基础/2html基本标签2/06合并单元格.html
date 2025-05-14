@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>合并单元格</title>
+</head>
+<body>
+    <!-- 跨行合并rowspan  跨列合并colspan -->
+    <table border="1">
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>语文</th>
+                <th>数学 </th>
+                <th>总分</th>
+            </tr>
+        </thead> 
+        <tbody>
+            <tr>
+                <td>张三</td>
+                <td rowspan="2">90</td>
+                <td>100</td>
+                <td>190</td>
+            </tr>
+            <tr>
+                <td>李四</td>
+                <!-- <td>90</td> -->
+                <td>100</td>
+                <td>191</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

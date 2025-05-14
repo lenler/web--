@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 动画就是加强的过度效果 实现多个状态之间的变化过程 可以控制 */
+        /* 1 定义动画 */
+        /* @keyframes 动画名称{} */
+        /* form{当前状态的css} to{}类型 和 0%{} 10%{}.....100%{}类型 */
+        /* 2 调用动画 */
+        /* 给需要动画的标签加 animation: 动画名称 动画时间 动画执行次数 动画执行方式 */
+        .box{
+            width: 200px;
+            height: 100px;
+            background-color: pink;
+            animation: change 2s;
+        }
+        /* @keyframes change{
+            from{
+                background-color: pink;
+                width: 200px;
+            }
+            to{
+                background-color: orange;
+                width: 800px;
+            }
+        } */
+        @keyframes change{
+            /* 百分比是动画时长的百分比 */
+            0%{
+                background-color: pink;
+                width: 200px;
+            }
+            50%{
+                background-color: orange;
+                width: 800px;
+            }
+            100%{
+                background-color: pink;
+                width: 200px;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

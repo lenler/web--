@@ -1,0 +1,42 @@
+<!-- 子集绝对定位 父级相对定位 -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 400px;
+        }
+        .news{
+            position: relative;
+            /* 父级相对 */
+            width: 400px;
+            margin: 100px auto;
+            height: 350px;
+            background-color: #f5f5f5;
+        }
+        span{
+            position: absolute;
+            /* 子集绝对 */
+            /* 脱标，不占位置 */
+            top: 0;
+            right: 0;
+            display: block;
+            width: 92px;
+            height: 32px;background-color: #222;
+            text-align: center;
+            line-height: 32px;
+            color: aliceblue;
+        }
+    </style>
+ </head>
+ <body>
+    <div class="news">
+        <img src="./images/news.jpg" alt="">
+        <span>展会活动</span>
+        <h4>2022世界移动大会</h4>
+    </div>
+ </body>
+ </html>

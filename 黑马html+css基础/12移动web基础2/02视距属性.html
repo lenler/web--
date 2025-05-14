@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* perspective 指定用户与屏幕的距离 添加透视效果  近大元小 添加给父级 800-1200*/
+        .box{
+            /* 一定给直接父级添加视距 */
+            perspective: 1000px;
+        }
+        .son{
+            margin: 0 auto;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            transition: all 2s;
+        }
+
+        .son:hover{
+            transform: translate3d(300px,300px,300px);
+        }
+    </style>
+</head>
+<body>
+    <div class="box"><div class="son"></div></div>
+</body>
+</html>

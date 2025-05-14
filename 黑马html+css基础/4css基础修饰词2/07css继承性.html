@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-size: 30px;
+            color: aqua;
+            font-weight: 700;
+        }
+        /* 但当标签自己有样式就不继承body的选择器，但是还是会继承一些自己没有的样式 */
+        p{
+            color: beige;
+        }
+    </style>
+</head>
+<body>
+    <p>子集继承父级的文字控制属性，所以工作时一般使用body的控制器</p>
+    <div>继承性测试</div>
+    <span>继承性测试</span>
+</body>
+</html>

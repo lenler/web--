@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 伪类选择器写法如下 */
+        /* E:first-child查找第一个元素 */
+        /* E:last-chaild查找最后一个元素 */
+        /* E:nth-child(n)查找第n个元素 */
+        /* E:nth-last-child(n)查找倒数第n个元素 */
+        /* 也可以按公式写 例如2n+1奇数标签 */
+        /* -n+x找到第x以前的标签 */
+        /* n+x找到第x以后的标签 */
+        /* li:first-child{
+            background-color: green;
+        }
+        li:last-child{
+            background-color: red;
+        }
+        li:nth-child(3){
+            background-color: #304bbb;
+        } */
+         li:nth-child(2n+1){
+            background-color: #305bb3;
+         }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>li 1</li>
+        <li>li 2</li>
+        <li>li 3</li>
+        <li>li 4</li>
+        <li>li 5</li>
+        <li>li 6</li>
+        <li>li 7</li>
+        <li>li 8</li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 100px;
+            background-color: pink;
+            animation: change 3s linear 2s 3 alternate;
+            /* 如果写infinite 表示无限循环 */
+            /* alternate 表示动画交替执行*/
+            /* 动画执行完毕的状态不能出现无限循环 */
+            animation: change 3s linear 2s forwards;
+            /* forwards 动画执行完毕时状态为结束状态 */
+            /* backwards 动画执行完毕时状态为开始状态 默认的 */
+        }
+    
+        /* animation 动画名称 动画时长 速度曲线 延迟时间 重复次数 动画方向 执行完毕时状态 */
+        /* 速度曲线控制动画匀速（linear） 加速 或减速 */
+        /* steps(n)将动画分为n步完成
+         主要配合精灵图实现精灵动画 */
+        /* 动画时长和名称必须写 属性不分先后 如果有两个时间 第一个是动画时长 第二是延迟时间 */
+        @keyframes change{
+            form{
+                width: 200px;
+            }
+            to{
+                width: 800px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>
