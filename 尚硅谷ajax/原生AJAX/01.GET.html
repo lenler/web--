@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div{
+        width: 300px;
+        height: 100px;
+        border: 1px solid pink;
+    }
+</style>
+<body>
+    <button>点击发送请求</button>
+    <div></div>
+    <script>
+        let btn = document.querySelector('button');
+        let div = document.querySelector('div');
+        //封装ajax
+       
+        btn.addEventListener('click',function(){
+            console.log('点击了');
+           
+            //1.创建对象
+            let xhr=new XMLHttpRequest();
+            //2.初始化
+            xhr.open('GET','http://127.0.0.1:8000/server');
+            //3.发送
+            xhr.send();
+            //4.处理服务端返回的结果 在状态改变时触发
+            xhr.onreadystatechange=function(){
+                //判断状态
+                let result='';
+                if(xhr.readyState===4){
+                    //判断状态码
+                    if(xhr.status>=200&&xhr.status<300){
+                        //处理结果
+                        //1.响应行 
+                        console.log(xhr.status);//状态码
+                        console.log(xhr.getAllResponseHeaders);//响应头
+                        console.log(xhr.statusText);//状态码描述
+                        console.log(xhr.response);//响应体
+                        div.innerHTML=xhr.response;
+                    }else{
+                        result='请求失败';
+                        alert('请求失败');
+                    }
+            //on 在...时  readystatechange 状态改变 change 改变
+            // 0 1 2 3 4
+            // 0 未初始化 1 已经调用open() 2 已经调用send() 3 已经接收到部分数据 4 已经接收到全部数据
+                }
+            }
+    })
+    </script>
+</body>
+</html>

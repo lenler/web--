@@ -70,4 +70,60 @@ li > a {
     </div>
   </div>
 </body>
+<script>
+class todo {
+  constructor() {
+    // 创建map元素
+    this.map = new Map();
+    // 获取所有的li元素
+    this.lis = document.querySelectorAll("li");
+    // 获取info信息
+    this.info = document.querySelector(".info");
+    // 获取pick信息
+    this.plck = document.querySelector(".plck");
+  }
+  run() {
+    this.lis.forEach((item) => {
+      item.querySelector("a").addEventListener("click", (event) => {
+        // 如果没有有select的值，表示没有选中
+        if (!item.getAttribute("select")) {
+          // 向li元素添加select属性，并赋予初始值true
+          item.setAttribute("select", true);
+          // 向map添加键值，键是当前li元素，值为li里面span的值
+          this.map.set(item, {
+            name: item.querySelector("span").innerHTML,
+          });
+          // 改变a标签的背景色是红色
+          event.target.style.backgroundColor = "red";
+          // 改变a标签的值是-
+          event.target.innerHTML = "-";
+          event.target.style.transition = "0.5s";
+        } else {
+          // 如果已经有select属性，则删除select属性
+          item.removeAttribute("select");
+          // 在map中删除当前节点
+          this.map.delete(item);
+          // 吧a标签的背景色换为绿色
+          event.target.style.backgroundColor = "green";
+          // 内容换为+
+          event.target.innerHTML = "+";
+          event.target.style.transition = "0.5s";
+        }
+        // 获取到info文字
+        let infohtml = document.querySelector(".info");
+        // 动态获取当前map的个数
+        infohtml.innerHTML = `当前一共选择了${this.map.size}门课程`;
+        // 获取下面的div
+        let plck = document.querySelector(".plck");
+        plck.innerHTML = "";
+        // 遍历追加选中的课程
+        this.map.forEach((name, lis) => {
+          plck.innerHTML += `<span>${name.name}</span>`;
+        });
+      });
+    });
+  }
+}
+new todo().run();
+</script>
 </html>

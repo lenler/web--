@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div{
+        width: 300px;
+        height: 100px;
+        border: 1px solid pink;
+    }
+</style>
+<body>
+    <div></div>
+    <script>
+        let div = document.querySelector('div');
+        div.addEventListener('click',function(){
+            let xhr=new XMLHttpRequest();
+            //设置响应体数据类型自动转化数据类型
+            xhr.responseType='json';
+            //初始化
+            xhr.open('GET','http://127.0.0.1:8000/json-server')
+            //发送请求
+            xhr.send();
+            xhr.onreadystatechange=function(){
+                if(xhr.readyState===4){
+                    if(xhr.status===200){
+                        let res=xhr.response;
+                        console.log(res);
+
+                        //这是手动转换一个json数据
+                        // JSON.parse(res);
+
+                        div.innerHTML=res.name+res.age;
+                        // res是一个字符串 我们需要将字符串转换为json对象
+                        // JSON.parse()方法可以将字符串转换为json对象
+                        // JSON.parse()方法的参数是一个字符串
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

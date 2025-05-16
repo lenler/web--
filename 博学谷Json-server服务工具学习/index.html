@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生成绩管理系统</title>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+       
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .input {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 5px;
+        }
+        input[type="text"] {
+            padding: 8px;
+            margin-right: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        input[type="button"], button {
+            padding: 8px 15px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        input[type="button"]:hover, button:hover {
+            background: #45a049;
+        }
+        .delete {
+            background: #f44336;
+        }
+        .delete:hover {
+            background: #d32f2f;
+        }
+        .change {
+            background: #2196F3;
+        }
+        .change:hover {
+            background: #0b7dda;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+    </style>
+    <script src="./js/index.js"></script>
+</head>
+<body>
+        <h1>学生成绩管理系统</h1>
+        <div class="input">
+            学号:<input type="text" name="id">
+            姓名:<input type="text" name="names">
+            科目:<input type="text" name="subject">
+            成绩:<input type="text" name="score">
+            <input type="button" value="添加" name="adds">
+            <input type="button" value="查询" name="search">  
+            <button class="change">修改</button>
+            <button class="delete">删除</button>  
+        </div>
+        <div class="table">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>学号</th>
+                        <th>姓名</th>
+                        <th>语文</th>
+                        <th>数学</th>
+                        <th>英语</th>
+                        <th>总成绩</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <!--   <tr>
+                        <td>1</td>
+                        <td>张三</td>
+                        <td>语文</td>
+                        <td>80</td>
+                    </tr> -->
+                </tbody>
+            </table>
+    </div>
+</body>
+
+</html>

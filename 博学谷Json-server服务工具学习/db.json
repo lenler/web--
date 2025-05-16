@@ -1,0 +1,44 @@
+{
+  "students": [
+    {
+      "id": "20230001",
+      "name": "张三",
+      "Chinese": 88,
+      "Math": 92,
+      "English": 85,
+      "total": 265
+    },
+    {
+      "id": "20230002",
+      "name": "李四",
+      "Chinese": 76,
+      "Math": 81,
+      "English": 79,
+      "total": 236
+    },
+    {
+      "id": "20230003",
+      "name": "王五",
+      "Chinese": 90,
+      "Math": 87,
+      "English": 93,
+      "total": 270
+    },
+    {
+      "id": "20230004",
+      "name": "赵六",
+      "Chinese": 65,
+      "Math": 70,
+      "English": 68,
+      "total": 203
+    },
+    {
+      "id": "20230005",
+      "name": "孙七",
+      "Chinese": 82,
+      "Math": 78,
+      "English": 80,
+      "total": 240
+    }
+  ]
+}

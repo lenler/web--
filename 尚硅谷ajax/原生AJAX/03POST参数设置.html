@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div{
+        width: 300px;
+        height: 100px;
+        border: 1px solid pink;
+    }
+</style>
+<body>
+    <div></div>
+    <script>
+        const div=document.querySelector('div');
+        div.addEventListener('mouseover',function(){
+            //设置xhr对象
+            let xhr=new XMLHttpRequest();
+            //初始化
+            xhr.open('POST','http://127.0.0.1:8000/server')
+            //发送请求 POST请求在send方法中添加参数 参数可以是任意类型任意内容
+            xhr.send('{name:"张三",age:18}');
+            //处理结果
+            xhr.onreadystatechange=function(){
+                if(xhr.readyState===4){
+                    if(xhr.status===200){
+                        div.innerHTML=xhr.response;
+                    }else{
+                        alert('请求失败');
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>
