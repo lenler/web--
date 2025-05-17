@@ -4,81 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>学生成绩管理系统</title>
-    <style>
-        body {
-            font-family: 'Microsoft YaHei', sans-serif;
-            background-color: #f5f5f5;
-            padding: 20px;
-        }
-       
-        h1 {
-            color: #333;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .input {
-            margin-bottom: 20px;
-            padding: 15px;
-            background: #f9f9f9;
-            border-radius: 5px;
-        }
-        input[type="text"] {
-            padding: 8px;
-            margin-right: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        input[type="button"], button {
-            padding: 8px 15px;
-            background: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-right: 10px;
-        }
-        input[type="button"]:hover, button:hover {
-            background: #45a049;
-        }
-        .delete {
-            background: #f44336;
-        }
-        .delete:hover {
-            background: #d32f2f;
-        }
-        .change {
-            background: #2196F3;
-        }
-        .change:hover {
-            background: #0b7dda;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-        tr:hover {
-            background-color: #f5f5f5;
-        }
-    </style>
-    <script src="./js/index.js"></script>
+    <link rel="stylesheet" href="css/1.css">
 </head>
 <body>
         <h1>学生成绩管理系统</h1>
+        <div class="searchChoice">
+            <button class="byID">按id排名</button>
+            <button class="byTotal">总分排名</button>
+            <button class="byChinese">语文排名</button>
+            <button class="byMath">数学排名</button>
+            <button class="byEnglish">英语排名</button>
+            <button class="byName">姓名查询</button>
+            <button class="byPersonalID">ID查询</button>
+        </div>
         <div class="input">
-            学号:<input type="text" name="id">
-            姓名:<input type="text" name="names">
-            科目:<input type="text" name="subject">
-            成绩:<input type="text" name="score">
-            <input type="button" value="添加" name="adds">
-            <input type="button" value="查询" name="search">  
+            学号:<input type="text" class="id" >
+            姓名:<input type="text" class="name">
+            语文:<input type="text" class="chinese" >
+            数学:<input type="text" class="math" >
+            英语:<input type="text" class="english" >
+            <button class="add">添加</button>
+            <button class="find">查询</button>
             <button class="change">修改</button>
             <button class="delete">删除</button>  
         </div>
@@ -95,15 +41,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                  <!--   <tr>
-                        <td>1</td>
-                        <td>张三</td>
-                        <td>语文</td>
-                        <td>80</td>
-                    </tr> -->
                 </tbody>
             </table>
     </div>
+    <script src="./js/index.js"></script>
 </body>
 
 </html>

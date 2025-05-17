@@ -14,5 +14,4 @@ app.get('/',(request,response)=>{
 app.listen(8000,()=>{
     console.log('服务已经启动，端口3000监听中');
     console.log('服务器地址:http://127.0.0.1:8000/');
-    
 })

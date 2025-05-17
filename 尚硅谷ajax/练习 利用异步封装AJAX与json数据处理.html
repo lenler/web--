@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function ajax(url){
+        return new Promise((resolve,reject)=>{
+          
+          let xhr=new XMLHttpRequest();
+          //修改数据类型
+          xhr.responseType='json';
+          //初始化
+          xhr.open('GET', url);
+          //发送
+          xhr.send();
+          //响应函数
+          xhr.onreadystatechange = function(){
+              if(xhr.readyState === 4){
+                if(xhr.status === 200){
+                  resolve(xhr.response)
+                }else{
+                  reject('状态错误')
+                }
+              }
+          }
+          //错误处理
+          xhr.onerror = function(){
+            reject('请求错误');
+          }
+        })
+    }
+
+    //写一个排序函数
+    function sortScore(students){
+      students.sort(function(a,b){
+        return b.total-a.total
+      })
+    }
+
+    ajax('http://127.0.0.1:8000/json-server').then((res)=>{
+      let students=res.students
+      sortScore(students);
+      console.log(students);
+      let container = document.createElement('div');
+      for(let k in students){
+        let p = document.createElement('p');
+        p.textContent = JSON.stringify(students[k],null,2);
+        container.appendChild(p);
+      }
+      document.body.appendChild(container);
+    },
+    err=>{
+      console.log('发生错误:'+err);
+    })
+  </script>
+</body>
+</html>

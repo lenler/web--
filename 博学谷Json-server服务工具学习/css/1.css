@@ -1,0 +1,82 @@
+body {
+    position: relative;
+    font-family: 'Microsoft YaHei', sans-serif;
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.input {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 5px;
+}
+input[type="text"] {
+    padding: 8px;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+input[type="button"], button {
+    padding: 8px 15px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+input[type="button"]:hover, button:hover {
+    background: #45a049;
+}
+.delete {
+    background: #f44336;
+}
+.delete:hover {
+    background: #d32f2f;
+}
+.change {
+    background: #2196F3;
+}
+.change:hover {
+    background: #0b7dda;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+th {
+    background-color: #f2f2f2;
+}
+tr:hover {
+    background-color: #f5f5f5;
+}
+.searchChoice{
+    display: none;
+    border-radius: 15px;
+    height: 200px;
+    border: #2196F3 1px solid;
+    background-color: ghostwhite;
+    position: absolute;
+    left: 50%;
+    top:400px;
+    translate:-50% -50%;
+    align-items: center;
+}
+.searchChoice button{
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    font-size: 20px;
+   padding: 30px;
+}

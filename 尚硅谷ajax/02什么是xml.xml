@@ -1,0 +1,6 @@
+可扩展标记语言,现在主流还是json进行数据交互
+<student>
+    <name>张三</name>
+    <age>18</age>
+    <sex>男</sex>
+</student>

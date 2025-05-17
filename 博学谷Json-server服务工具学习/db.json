@@ -1,22 +1,6 @@
 {
   "students": [
     {
-      "id": "20230001",
-      "name": "张三",
-      "Chinese": 88,
-      "Math": 92,
-      "English": 85,
-      "total": 265
-    },
-    {
-      "id": "20230002",
-      "name": "李四",
-      "Chinese": 76,
-      "Math": 81,
-      "English": 79,
-      "total": 236
-    },
-    {
       "id": "20230003",
       "name": "王五",
       "Chinese": 90,
